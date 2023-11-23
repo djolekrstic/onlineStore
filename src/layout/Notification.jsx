@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { account, currency, language } from "../data";
 import { BsChevronDown, BsMoonStars, BsSun } from "react-icons/bs";
-import NotificationSettings from "../components/NotificationSettings";
+import {
+  NotificationAccount,
+  NotificationCurrency,
+  NotificationLanguage,
+} from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../features/user/userSlice";
 
@@ -26,21 +30,21 @@ const Notification = () => {
         </div>
         <div className="notification-right">
           {/* Account */}
-          <NotificationSettings
+          <NotificationAccount
             data={account}
             icon={<BsChevronDown />}
             state={accountState}
             setState={setAccountState}
           />
           {/* Currency */}
-          <NotificationSettings
+          <NotificationCurrency
             data={currency}
             icon={<BsChevronDown />}
             state={currencyState}
             setState={setCurrencyState}
           />
           {/* Language */}
-          <NotificationSettings
+          <NotificationLanguage
             data={language}
             icon={<BsChevronDown />}
             state={languageState}

@@ -5,19 +5,26 @@ const themes = {
   dark: "dark",
 };
 
-const getUserFromLocalStorage = () => {
-  return JSON.parse(localStorage.getItem("user")) || null;
-};
-
 const getThemeFromLocalStorage = () => {
   const theme = localStorage.getItem("theme") || themes.light;
   document.documentElement.setAttribute("data-theme", theme);
   return theme;
 };
 
+const getCurrencyFromLocalStorage = () => {
+  const currency = localStorage.getItem("currency") || "USD";
+  return currency;
+};
+
+const getLanguageFromLocalStorage = () => {
+  const language = localStorage.getItem("language") || "serbian";
+  return language;
+};
+
 const initialState = {
-  user: getUserFromLocalStorage(),
   theme: getThemeFromLocalStorage(),
+  currency: getCurrencyFromLocalStorage(),
+  language: getLanguageFromLocalStorage(),
 };
 
 const userSlice = createSlice({
@@ -30,9 +37,18 @@ const userSlice = createSlice({
       document.documentElement.setAttribute("data-theme", state.theme);
       localStorage.setItem("theme", state.theme);
     },
+    changeCurrency: (state, action) => {
+      state.currency = action.payload;
+      localStorage.setItem("currency", state.currency);
+    },
+    changeLanguage: (state, action) => {
+      state.language = action.payload;
+      localStorage.setItem("language", state.language);
+    },
   },
 });
 
-export const { toggleTheme } = userSlice.actions;
+export const { toggleTheme, changeCurrency, changeLanguage } =
+  userSlice.actions;
 
 export default userSlice.reducer;

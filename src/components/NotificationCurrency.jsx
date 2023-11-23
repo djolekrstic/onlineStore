@@ -1,4 +1,11 @@
-const NotificationSettings = ({ data, icon, state, setState }) => {
+import { useDispatch, useSelector } from "react-redux";
+import { changeCurrency } from "../features/user/userSlice";
+import { nanoid } from "nanoid";
+
+const NotificationCurrency = ({ data, icon, state, setState }) => {
+  const dispatch = useDispatch();
+  const activeCurrency = useSelector((state) => state.userState.currency);
+
   return (
     <div
       className="settings"
@@ -10,7 +17,7 @@ const NotificationSettings = ({ data, icon, state, setState }) => {
         onClick={() => setState(!state)}
         onBlur={() => setState(false)}
       >
-        {data.name}
+        {activeCurrency}
         <span
           style={
             state
@@ -38,7 +45,7 @@ const NotificationSettings = ({ data, icon, state, setState }) => {
       >
         {data.items.map((item) => {
           return (
-            <div>
+            <div key={nanoid()} onClick={() => dispatch(changeCurrency(item))}>
               <a href="">
                 <p>{item}</p>
               </a>
@@ -49,4 +56,4 @@ const NotificationSettings = ({ data, icon, state, setState }) => {
     </div>
   );
 };
-export default NotificationSettings;
+export default NotificationCurrency;
