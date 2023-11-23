@@ -1,0 +1,33 @@
+.notification {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid var(--color-neutral);
+  background-color: var(--color-base-100);
+
+  &-center {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1560px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-left p {
+    font-size: var(--text-xs);
+    color: var(--color-neutral);
+  }
+
+  &-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5em;
+  }
+}
+
+.themeIcon {
+  color: var(--color-neutral);
+  cursor: pointer;
+}

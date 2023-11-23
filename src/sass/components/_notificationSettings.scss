@@ -1,0 +1,53 @@
+.settings {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding: 0.3em 0;
+
+  &-dropdown {
+    position: absolute;
+    top: 1.74em;
+    width: 6em;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s ease-out;
+    border-left: 1px solid var(--color-neutral);
+    border-right: 1px solid var(--color-neutral);
+    background-color: var(--color-base-100);
+
+    a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 50px;
+      padding-left: 10px;
+      padding-right: 10px;
+      text-decoration: none;
+      color: var(--color-neutral);
+      font-size: var(--text-xs);
+    }
+
+    a:hover {
+      background-color: var(--color-primary);
+      color: var(--color-base-100);
+    }
+  }
+
+  &-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5em;
+    border: none;
+    background-color: transparent;
+    font-size: var(--text-xs);
+    color: var(--color-neutral);
+
+    span {
+      transform: rotate(0deg);
+      transition: transform 0.3s ease-out;
+    }
+  }
+}

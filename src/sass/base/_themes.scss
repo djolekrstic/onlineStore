@@ -1,0 +1,22 @@
+:root,
+[data-theme="light"] {
+  // color
+  --color-primary: hsl(212, 100%, 51%);
+  --color-secondary: hsl(247, 47%, 43%);
+  --color-accent: hsl(72, 98%, 50%);
+  --color-neutral: hsl(214, 30%, 32%);
+  --color-base-100: hsl(0, 0%, 100%);
+  --color-base-200: hsl(216, 100%, 97%);
+  --color-base-300: hsl(220, 45%, 92%);
+}
+
+[data-theme="dark"] {
+  // color
+  --color-primary: hsl(198, 93%, 60%);
+  --color-secondary: hsl(234, 89%, 74%);
+  --color-accent: hsl(72, 98%, 50%);
+  --color-neutral: hsl(225, 8%, 80%);
+  --color-base-100: hsl(222, 46%, 11%);
+  --color-base-200: hsl(222, 50%, 4%);
+  --color-base-300: hsl(0, 0%, 0%);
+}

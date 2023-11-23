@@ -1,0 +1,105 @@
+/* -------------------------------- 
+Typography
+-------------------------------- */
+
+:root {
+  --font-primary: sans-serif;
+  --font-secondary: serif;
+
+  /* set base values */
+  --text-base-size: 1.5em;
+  --text-scale-ratio: 1.2;
+
+  /* type scale */
+  --text-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio)));
+  --text-sm: calc(1em / var(--text-scale-ratio));
+  --text-md: calc(1em * var(--text-scale-ratio));
+  --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xl: calc(
+    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
+      var(--text-scale-ratio)
+  );
+  --text-2xl: calc(
+    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
+      var(--text-scale-ratio) * var(--text-scale-ratio)
+  );
+  --text-3xl: calc(
+    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
+      var(--text-scale-ratio) * var(--text-scale-ratio) *
+      var(--text-scale-ratio)
+  );
+
+  /* line-height */
+  --heading-line-height: 1.2;
+  --body-line-height: 1.4;
+
+  /* spacing values */
+  --space-3xs: 0.25em;
+  --space-2xs: 0.375em;
+  --space-xs: 0.5em;
+  --space-sm: 0.75em;
+  --space-md: 1.25em;
+  --space-lg: 2em;
+  --space-xl: 3.25em;
+  --space-2xl: 5.25em;
+  --space-3xl: 8.5em;
+}
+
+// @include breakpoint(md) {
+//     :root {
+//         --text-base-size: 1.25em;
+//         --text-scale-ratio: 1.25;
+//     }
+// }
+
+body {
+  font-size: var(--text-base-size);
+  font-family: var(--font-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+form legend {
+  margin-bottom: var(--space-2xs);
+  line-height: var(--heading-line-height);
+}
+
+/* text size */
+.text--3xl {
+  font-size: var(--text-3xl);
+}
+
+h1,
+.text--2xl {
+  font-size: var(--text-2xl);
+}
+
+h2,
+.text--xl {
+  font-size: var(--text-xl);
+}
+
+h3,
+.text--lg {
+  font-size: var(--text-lg);
+}
+
+h4,
+.text--md {
+  font-size: var(--text-md);
+}
+
+.text--sm,
+small {
+  font-size: var(--text-sm);
+}
+
+.text--xs {
+  font-size: var(--text-xs);
+}
+
+p {
+  line-height: var(--body-line-height);
+}
