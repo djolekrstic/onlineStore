@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import { NavLink } from "react-router-dom";
 
 const NotificationAccount = ({ data, icon, state, setState }) => {
   return (
@@ -38,12 +39,12 @@ const NotificationAccount = ({ data, icon, state, setState }) => {
             : {}
         }
       >
-        {data.items.map((item) => {
+        {data.items.map((item, index) => {
           return (
             <div key={nanoid()}>
-              <a href="">
+              <NavLink to={data.routes[index]}>
                 <p>{item}</p>
-              </a>
+              </NavLink>
             </div>
           );
         })}

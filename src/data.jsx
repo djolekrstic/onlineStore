@@ -1,6 +1,7 @@
 export const account = {
   name: "Account",
-  items: ["My account", "Checkout", "Sign in"],
+  items: ["My account", "Checkout", "Login/Register"],
+  routes: ["account", "checkout", "login"],
 };
 
 export const currency = {

@@ -52,9 +52,7 @@ const NotificationLanguage = ({ data, icon, state, setState }) => {
               key={nanoid()}
               onClick={() => dispatch(changeLanguage(data.language[index]))}
             >
-              <a href="">
-                <p>{item}</p>
-              </a>
+              <p>{item}</p>
             </div>
           );
         })}

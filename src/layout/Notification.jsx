@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { account, currency, language } from "../data";
-import { BsChevronDown, BsMoonStars, BsSun } from "react-icons/bs";
+import { BsChevronDown, BsMoon, BsSun } from "react-icons/bs";
 import {
   NotificationAccount,
   NotificationCurrency,
@@ -58,7 +58,7 @@ const Notification = () => {
                 style={{ display: "none" }}
               />
               {theme == "light" ? (
-                <BsMoonStars className="themeIcon" />
+                <BsMoon className="themeIcon" />
               ) : (
                 <BsSun className="themeIcon" />
               )}

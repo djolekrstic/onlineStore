@@ -1,11 +1,22 @@
-import Navigation from "../layout/Navigation";
-import Notification from "../layout/Notification";
+import { Outlet, useNavigation } from "react-router-dom";
+import { Notification, Navigation } from "../layout";
+import { Loading } from "../components";
 
 const HomeLayout = () => {
+  const navigation = useNavigation();
+  const isPageLoading = navigation.state === "loading";
+
   return (
     <>
       <Notification />
-      <section className="align-element">{/* <Navigation /> */}</section>
+      <Navigation />
+      {isPageLoading ? (
+        <Loading />
+      ) : (
+        <section className="align-element">
+          <Outlet />
+        </section>
+      )}
     </>
   );
 };

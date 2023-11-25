@@ -46,9 +46,7 @@ const NotificationCurrency = ({ data, icon, state, setState }) => {
         {data.items.map((item) => {
           return (
             <div key={nanoid()} onClick={() => dispatch(changeCurrency(item))}>
-              <a href="">
-                <p>{item}</p>
-              </a>
+              <p>{item}</p>
             </div>
           );
         })}
