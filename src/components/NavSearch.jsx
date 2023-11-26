@@ -1,14 +1,35 @@
 import { BsSearch } from "react-icons/bs";
+import { customFetch } from "../utils";
+import { useLoaderData } from "react-router-dom";
+import { nanoid } from "nanoid";
+
+const genresQuery = () => {
+  return {
+    queryKey: ["genres"],
+    queryFn: () => customFetch(`/genres?key=${RAWG_KEY}`),
+  };
+};
+
+export const loader = (queryClient) => async () => {
+  const response = await queryClient.ensureQueryData(genresQuery());
+  const genres = response.data.results;
+  return { genres };
+};
 
 const NavSearch = () => {
+  const { genres } = useLoaderData();
+
   return (
     <form className="search-bar">
       <div>
         <select>
-          <option>Categories</option>
-          <option>Prva opcija</option>
-          <option>Druga opcija</option>
-          <option>Treca opcija</option>
+          {genres.map((genre) => {
+            return (
+              <option key={nanoid()} value={genre.name}>
+                {genre.name}
+              </option>
+            );
+          })}
         </select>
       </div>
       <div>
