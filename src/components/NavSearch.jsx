@@ -6,7 +6,8 @@ import { nanoid } from "nanoid";
 const genresQuery = () => {
   return {
     queryKey: ["genres"],
-    queryFn: () => customFetch(`/genres?key=${process.env.REACT_APP_RAWG_KEY}`),
+    queryFn: () =>
+      customFetch(`/genres?key=${import.meta.env.REACT_APP_RAWG_KEY}`),
   };
 };
 
