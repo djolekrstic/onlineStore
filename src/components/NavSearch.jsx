@@ -1,20 +1,6 @@
 import { BsSearch } from "react-icons/bs";
-import { customFetch } from "../utils";
 import { useLoaderData } from "react-router-dom";
 import { nanoid } from "nanoid";
-
-const genresQuery = () => {
-  return {
-    queryKey: ["genres"],
-    queryFn: () => customFetch(`/genres?key=${import.meta.env.VITE_RAWG_KEY}`),
-  };
-};
-
-export const loader = (queryClient) => async () => {
-  const response = await queryClient.ensureQueryData(genresQuery());
-  const genres = response.data.results;
-  return { genres };
-};
 
 const NavSearch = () => {
   const { genres } = useLoaderData();
@@ -26,7 +12,9 @@ const NavSearch = () => {
           {genres.map((genre) => {
             return (
               <option key={nanoid()} value={genre.name}>
-                {genre.name}
+                {genre.name == "Massively Multiplayer"
+                  ? "Multiplayer"
+                  : genre.name}
               </option>
             );
           })}

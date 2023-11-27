@@ -6,13 +6,13 @@ const themes = {
 };
 
 const getThemeFromLocalStorage = () => {
-  const theme = localStorage.getItem("theme") || themes.light;
+  const theme = localStorage.getItem("theme") || themes.dark;
   document.documentElement.setAttribute("data-theme", theme);
   return theme;
 };
 
 const getCurrencyFromLocalStorage = () => {
-  const currency = localStorage.getItem("currency") || "USD";
+  const currency = localStorage.getItem("currency") || "RSD";
   return currency;
 };
 

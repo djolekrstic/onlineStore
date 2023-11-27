@@ -1,0 +1,9 @@
+.hero {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+
+  &-carousel {
+    max-width: 77%;
+  }
+}
