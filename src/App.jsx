@@ -18,7 +18,7 @@ import {
 import { ErrorElement } from "./components";
 
 // loaders
-import { loader as genresLoader } from "./queries/GenresLoader";
+import Loader from "./loader/Loader";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,13 +33,13 @@ const router = createBrowserRouter([
     path: "/",
     element: <HomeLayout />,
     errorElement: <Error />,
-    loader: genresLoader(queryClient),
+    loader: Loader(queryClient),
     children: [
       {
         index: true,
         element: <Landing />,
         errorElement: <ErrorElement />,
-        loader: genresLoader(queryClient),
+        loader: Loader(queryClient),
       },
       {
         path: "account",

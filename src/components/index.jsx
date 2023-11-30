@@ -4,5 +4,5 @@ export { default as NotificationLanguage } from "./NotificationLanguage";
 export { default as NavSearch } from "./NavSearch";
 export { default as ErrorElement } from "./ErrorElement";
 export { default as Loading } from "./Loading";
-export { default as HeroGenres } from "./HeroGenres";
+export { default as HeroAdd } from "./HeroAdd";
 export { default as HeroCarousel } from "./HeroCarousel";

@@ -1,9 +1,15 @@
 .hero {
-  margin-top: 1em;
+  margin-top: 2em;
   display: flex;
   flex-direction: row;
+  gap: 2em;
 
   &-carousel {
     max-width: 77%;
+  }
+
+  &-add {
+    display: flex;
+    flex-direction: column;
   }
 }

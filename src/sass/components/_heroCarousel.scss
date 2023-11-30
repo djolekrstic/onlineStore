@@ -34,11 +34,11 @@
       font-size: var(--text-md);
     }
 
-    &-button {
+    &-link {
       padding: 0.5em;
+      text-decoration: none;
       color: var(--color-white);
       background-color: var(--color-primary);
-      border: 0;
       cursor: pointer;
     }
 
