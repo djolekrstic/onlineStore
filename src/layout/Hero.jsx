@@ -1,5 +1,4 @@
-import HeroCarousel from "../components/HeroCarousel";
-import HeroAdd from "../components/HeroAdd";
+import { HeroCarousel, HeroAdd } from "../components";
 import { useLoaderData } from "react-router-dom";
 
 const Hero = () => {

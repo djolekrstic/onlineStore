@@ -6,3 +6,4 @@ export { default as ErrorElement } from "./ErrorElement";
 export { default as Loading } from "./Loading";
 export { default as HeroAdd } from "./HeroAdd";
 export { default as HeroCarousel } from "./HeroCarousel";
+export { default as SupportLine } from "./SupportLine";

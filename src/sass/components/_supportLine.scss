@@ -1,0 +1,13 @@
+.svgColor {
+  color: var(--color-neutral);
+}
+
+.svgFill {
+  fill: var(--color-neutral);
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
