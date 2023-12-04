@@ -6,4 +6,7 @@ export { default as ErrorElement } from "./ErrorElement";
 export { default as Loading } from "./Loading";
 export { default as HeroAdd } from "./HeroAdd";
 export { default as HeroCarousel } from "./HeroCarousel";
-export { default as SupportLine } from "./SupportLine";
+export { default as HeroSupport } from "./HeroSupport";
+export { default as Heading } from "./Heading";
+export { default as FeaturedProducts } from "./FeaturedProducts";
+export { default as Product } from "./Product";

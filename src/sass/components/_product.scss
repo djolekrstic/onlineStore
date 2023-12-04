@@ -1,0 +1,118 @@
+.product {
+  margin: 1em 1.5em;
+  padding: 0.5em;
+  width: 13.5em;
+  height: 19em;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1em;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in;
+
+  &:hover {
+    box-shadow: 5px 5px 20px var(--color-base-300);
+
+    .product-info-price {
+      opacity: 0;
+      transform: translateY(45px);
+    }
+
+    .product-info-buttons {
+      opacity: 1;
+      transform: translateY(-25px);
+    }
+  }
+
+  &-image {
+    width: 100%;
+    height: 7em;
+
+    img {
+      width: 100%;
+      height: 7em;
+    }
+  }
+
+  &-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5em;
+    color: var(--color-neutral);
+
+    &-name {
+      font-size: var(--text-sm);
+    }
+
+    &-section {
+      display: flex;
+      align-items: start;
+      gap: 0.5em;
+
+      ul {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        list-style: none;
+        font-size: var(--text-sm);
+      }
+    }
+
+    &-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    &-price {
+      display: flex;
+      gap: 0.5em;
+      font-size: var(--text-md);
+      font-weight: 800;
+      opacity: 1;
+      transform: translateY(20px);
+      transition: all 0.3s ease-in;
+    }
+
+    &-buttons {
+      width: 100%;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 1.5em;
+      opacity: 0;
+      transform: translateY(0px);
+      transition: all 0.3s ease-in;
+
+      &-cart {
+        width: 70%;
+        height: 3em;
+        color: var(--color-neutral);
+        font-size: var(--text-xs);
+        text-transform: uppercase;
+        border: 2px solid var(--color-neutral);
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--color-white);
+          background-color: var(--color-primary);
+        }
+      }
+
+      &-liked {
+        font-size: var(--text-lg);
+
+        &:hover {
+          color: var(--color-alert);
+        }
+      }
+    }
+  }
+  p {
+    font-size: var(--text-xs);
+  }
+}

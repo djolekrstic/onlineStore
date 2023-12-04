@@ -1,0 +1,31 @@
+.svgColor {
+  color: var(--color-neutral);
+}
+
+.svgFill {
+  fill: var(--color-neutral);
+}
+
+.line {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: auto auto auto auto;
+
+  &-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25em;
+      color: var(--color-neutral);
+
+      p {
+        font-size: calc(var(--text-xs) / 1.1);
+      }
+    }
+  }
+}

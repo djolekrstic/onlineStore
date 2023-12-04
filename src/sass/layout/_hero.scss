@@ -1,8 +1,14 @@
 .hero {
   margin-top: 2em;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 2em;
+
+  &-up {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+  }
 
   &-carousel {
     max-width: 77%;

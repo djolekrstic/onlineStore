@@ -15,3 +15,18 @@ export const language = {
     <span>&#127482;&#127480; English</span>,
   ],
 };
+
+export const months = [
+  "Jan.",
+  "Feb.",
+  "Mar.",
+  "Apr.",
+  "May",
+  "June",
+  "July",
+  "Aug.",
+  "Sept.",
+  "Oct.",
+  "Nov.",
+  "Dec.",
+];

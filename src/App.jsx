@@ -10,7 +10,6 @@ import {
   Checkout,
   SingleProduct,
   Products,
-  ProductsCompare,
   ProductsLiked,
   Account,
 } from "./pages";
@@ -58,10 +57,6 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
-      },
-      {
-        path: "compare",
-        element: <ProductsCompare />,
       },
       {
         path: "liked",
