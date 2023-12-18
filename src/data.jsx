@@ -30,3 +30,21 @@ export const months = [
   "Nov.",
   "Dec.",
 ];
+
+export const footerInfo = [
+  "Delivery",
+  "About Us",
+  "Secure Payment",
+  "Contact Us",
+  "Sitemap",
+  "Stores",
+];
+
+export const footerLinks = [
+  "Legal Notice",
+  "Prices Drop",
+  "New Products",
+  "Best Sales",
+  "Login",
+  "My Account",
+];

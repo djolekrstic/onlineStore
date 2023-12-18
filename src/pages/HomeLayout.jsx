@@ -1,5 +1,5 @@
 import { Outlet, useNavigation } from "react-router-dom";
-import { Notification, Navigation } from "../layout";
+import { Notification, Navigation, Footer } from "../layout";
 import { Loading } from "../components";
 
 const HomeLayout = () => {
@@ -17,6 +17,7 @@ const HomeLayout = () => {
           <Outlet />
         </section>
       )}
+      <Footer />
     </>
   );
 };

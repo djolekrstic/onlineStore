@@ -8,5 +8,7 @@ export { default as HeroAdd } from "./HeroAdd";
 export { default as HeroCarousel } from "./HeroCarousel";
 export { default as HeroSupport } from "./HeroSupport";
 export { default as Heading } from "./Heading";
-export { default as FeaturedProducts } from "./FeaturedProducts";
+export { default as ProductsSlider } from "./ProductsSlider";
 export { default as Product } from "./Product";
+export { default as Banner } from "./Banner";
+export { default as BannerSmall } from "./BannerSmall";

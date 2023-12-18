@@ -1,0 +1,129 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-base-200);
+
+  // footer-top
+  &-top {
+    margin: 3em 0;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 3em;
+
+    h6 {
+      color: var(--color-neutral);
+      font-size: var(--text-xs);
+      line-height: 1;
+    }
+
+    // footer-top-about
+    &-about {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      p {
+        color: var(--color-neutral);
+        font-size: var(--text-xs);
+      }
+
+      // footer-top-about-call
+      &-call {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        p {
+          font-size: var(--text-sm);
+        }
+      }
+    }
+
+    // footer-top-info
+    &-info {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 1em;
+
+      ul {
+        padding-left: 0;
+        list-style: none;
+        color: var(--color-neutral);
+        font-size: var(--text-xs);
+      }
+
+      li {
+        padding-bottom: 0.2em;
+        cursor: pointer;
+      }
+    }
+
+    // footer-top-newsletter
+    &-newsletter {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      p {
+        color: var(--color-neutral);
+        font-size: var(--text-xs);
+      }
+
+      input {
+        width: 70%;
+        padding: 0.5em;
+        font-size: var(--text-xs);
+      }
+
+      button {
+        padding: 0 0.8em;
+        height: 2.3em;
+        border: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: var(--color-neutral);
+        vertical-align: top;
+        color: var(--color-base-100);
+        font-size: var(--text-sm);
+        cursor: pointer;
+      }
+
+      button:hover {
+        opacity: 0.9;
+        background-color: var(--color-neutral);
+      }
+
+      // footer-top-newsletter-social
+      &-social {
+        display: flex;
+        gap: 1em;
+
+        button {
+          padding: 0;
+          height: 0;
+          color: var(--color-neutral);
+          font-size: var(--text-lg);
+        }
+      }
+    }
+  }
+
+  // footer-bottom
+  &-bottom {
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      color: var(--color-neutral);
+      font-size: var(--text-xs);
+    }
+  }
+}
+
+.telephone-icon {
+  color: var(--color-neutral);
+  font-size: 2em;
+}
