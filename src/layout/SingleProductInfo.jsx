@@ -106,9 +106,13 @@ const SingleProductInfo = ({
               ))}
             </tr>
             <tr>
-              {tableInfo.map((item) => (
-                <td>{item}</td>
-              ))}
+              {tableInfo.map((item) => {
+                if (item != false) {
+                  return <td>{item}</td>;
+                } else {
+                  return <td>N/A</td>;
+                }
+              })}
             </tr>
           </table>
         ) : (
