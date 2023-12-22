@@ -39,9 +39,12 @@ const SingleProductInfo = ({
     .join(", ");
 
   const platformString = platforms
-    .map((platform) => {
-      return platform.platform.name;
+    .map((platform, index) => {
+      if (index < 9) {
+        return platform.platform.name;
+      }
     })
+    .filter((item) => item != undefined)
     .join(", ");
 
   const developersString = developers
