@@ -40,7 +40,7 @@ const SingleProductInfo = ({
 
   const platformString = platforms
     .map((platform, index) => {
-      if (index < 9) {
+      if (index < 6) {
         return platform.platform.name;
       }
     })
