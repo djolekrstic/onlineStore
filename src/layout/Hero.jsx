@@ -5,7 +5,7 @@ const Hero = () => {
   const { genres } = useLoaderData();
 
   return (
-    <section className="hero">
+    <section className="hero margin-top-2em">
       <div className="hero-up">
         <div className="hero-carousel">
           <HeroCarousel />

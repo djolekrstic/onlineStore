@@ -67,7 +67,7 @@ const Footer = () => {
             </form>
             <div className="footer-top-newsletter-social">
               {social.map((item) => {
-                return <button>{item}</button>;
+                return <button key={nanoid()}>{item}</button>;
               })}
             </div>
           </div>

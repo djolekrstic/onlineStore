@@ -1,4 +1,4 @@
 const Loading = () => {
-  return <div>Loading...</div>;
+  return <div className="align-element margin-top loader"></div>;
 };
 export default Loading;

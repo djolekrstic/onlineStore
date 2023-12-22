@@ -4,8 +4,16 @@ import { months } from "../data";
 import { BsApple, BsPlaystation, BsWindows, BsXbox } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa6";
 import { BsHeartFill } from "react-icons/bs";
+import { NavLink } from "react-router-dom";
 
-const Product = ({ name, released, background_image, rating, platforms }) => {
+const Product = ({
+  id,
+  name,
+  released,
+  background_image,
+  rating,
+  platforms,
+}) => {
   const icons = {
     PC: <BsWindows />,
     macOS: <BsApple />,
@@ -30,7 +38,9 @@ const Product = ({ name, released, background_image, rating, platforms }) => {
         <img src={background_image} alt={name} />
       </div>
       <div className="product-info">
-        <h5 className="product-info-name">{shortName}</h5>
+        <NavLink to={`/products/${id}`}>
+          <h5 className="product-info-name">{shortName}</h5>
+        </NavLink>
         <div className="product-info-section">
           <h6>Released: </h6>
           <p>{`${months[number - 1]} ${date[2]}, ${date[0]}`}</p>

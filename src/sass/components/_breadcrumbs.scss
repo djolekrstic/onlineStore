@@ -1,0 +1,19 @@
+.breadcrumbs {
+  display: flex;
+  gap: 0.5em;
+
+  a {
+    color: var(--color-neutral);
+    font-size: var(--text-xs);
+    text-decoration: none;
+  }
+
+  a:active {
+    color: var(--color-primary);
+  }
+
+  p {
+    color: var(--color-neutral);
+    font-size: var(--text-xs);
+  }
+}

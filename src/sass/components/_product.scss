@@ -7,7 +7,6 @@
   flex-direction: column;
   align-items: start;
   gap: 1em;
-  cursor: pointer;
   transition: box-shadow 0.3s ease-in;
 
   &:hover {
@@ -105,6 +104,7 @@
 
       &-liked {
         font-size: var(--text-lg);
+        cursor: pointer;
 
         &:hover {
           color: var(--color-alert);

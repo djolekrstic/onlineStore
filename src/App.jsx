@@ -22,7 +22,7 @@ import Loader from "./loader/Loader";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 5,
+      staleTime: 1000 * 60 * 60,
     },
   },
 });
@@ -53,6 +53,7 @@ const router = createBrowserRouter([
         path: "products/:id",
         element: <SingleProduct />,
         errorElement: <ErrorElement />,
+        loader: Loader(queryClient),
       },
       {
         path: "cart",
