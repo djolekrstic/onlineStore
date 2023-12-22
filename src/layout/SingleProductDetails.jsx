@@ -7,17 +7,9 @@ const SingleProductDetails = ({
   genres,
   background_image,
   rating,
-  description,
   description_raw,
   ratings_count,
 }) => {
-  const descriptionList = description
-    .split("<p>")
-    .join("")
-    .split("</p>")
-    .join("")
-    .split("<br />");
-
   const short_description = description_raw.substring(
     0,
     description_raw.substring(0, 500).lastIndexOf(".") + 1
