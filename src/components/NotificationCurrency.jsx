@@ -1,22 +1,31 @@
 import { useDispatch, useSelector } from "react-redux";
 import { changeCurrency } from "../features/user/userSlice";
 import { nanoid } from "nanoid";
+import { useRef } from "react";
 
 const NotificationCurrency = ({ data, icon, state, setState }) => {
   const dispatch = useDispatch();
   const activeCurrency = useSelector((state) => state.userState.currency);
 
+  const linksContainer = useRef(null);
+
+  const handleMouseLeave = (event) => {
+    const links = linksContainer.current;
+    const { left, right, bottom } = links.getBoundingClientRect();
+    const { clientX, clientY } = event;
+
+    if (clientX < left + 1 || clientX > right - 1 || clientY > bottom - 1) {
+      setState(false);
+    }
+  };
+
   return (
     <div
       className="settings"
       onPointerEnter={() => setState(true)}
-      onPointerLeave={() => setState(false)}
+      onPointerLeave={handleMouseLeave}
     >
-      <button
-        className="settings-btn"
-        onClick={() => setState(!state)}
-        onBlur={() => setState(false)}
-      >
+      <button className="settings-btn" onTouchStart={() => setState(!state)}>
         {activeCurrency}
         <span
           style={
@@ -32,16 +41,13 @@ const NotificationCurrency = ({ data, icon, state, setState }) => {
         </span>
       </button>
       <div
+        ref={linksContainer}
         className="settings-dropdown"
-        style={
-          state
-            ? {
-                height: `${data.items.length * 50}px`,
-                transition: "height 0.4s ease-in",
-                borderBottom: "1px solid var(--color-neutral)",
-              }
-            : {}
-        }
+        style={{
+          height: `${data.items.length * 50}px`,
+          opacity: `${state ? "1" : "0"}`,
+          display: `${state ? "block" : "none"}`,
+        }}
       >
         {data.items.map((item) => {
           return (

@@ -1,20 +1,19 @@
 .settings {
   position: relative;
+  width: 6em;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   padding: 0.3em 0;
 
   &-dropdown {
+    display: none;
     position: absolute;
-    top: 1.94em;
+    top: 2.5em;
     width: 6em;
-    height: 0;
-    overflow: hidden;
-    transition: height 0.4s ease-out;
-    border-left: 1px solid var(--color-neutral);
-    border-right: 1px solid var(--color-neutral);
+    opacity: 0;
+    border: 1px solid var(--color-neutral);
     background-color: var(--color-base-100);
     z-index: 1;
 

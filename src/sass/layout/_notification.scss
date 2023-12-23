@@ -24,11 +24,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1.5em;
   }
 }
 
 .themeIcon {
+  margin-left: 1.5em;
   color: var(--color-neutral);
   cursor: pointer;
 }
