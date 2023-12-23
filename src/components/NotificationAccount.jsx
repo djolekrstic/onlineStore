@@ -7,10 +7,15 @@ const NotificationAccount = ({ data, icon, state, setState }) => {
 
   const handleMouseLeave = (event) => {
     const links = linksContainer.current;
-    const { left, right, bottom } = links.getBoundingClientRect();
+    const { left, right, top, bottom } = links.getBoundingClientRect();
     const { clientX, clientY } = event;
 
-    if (clientX < left + 1 || clientX > right - 1 || clientY > bottom - 1) {
+    if (
+      clientX < left + 1 ||
+      clientX > right - 1 ||
+      clientY > bottom - 1 ||
+      clientY > top + 1
+    ) {
       setState(false);
     }
   };
@@ -18,8 +23,8 @@ const NotificationAccount = ({ data, icon, state, setState }) => {
   return (
     <div
       className="settings"
-      onPointerEnter={() => setState(true)}
-      onPointerLeave={handleMouseLeave}
+      onMouseEnter={() => setState(true)}
+      onMouseLeave={handleMouseLeave}
     >
       <button className="settings-btn" onTouchStart={() => setState(!state)}>
         {data.name}
@@ -41,13 +46,14 @@ const NotificationAccount = ({ data, icon, state, setState }) => {
         ref={linksContainer}
         style={{
           height: `${data.items.length * 50}px`,
+          paddingTop: `${data.items.length * 1.6}em`,
           opacity: `${state ? "1" : "0"}`,
           display: `${state ? "block" : "none"}`,
         }}
       >
         {data.items.map((item, index) => {
           return (
-            <div key={nanoid()}>
+            <div key={nanoid()} className="settings-dropdown-list">
               <NavLink to={data.routes[index]} onClick={() => setState(false)}>
                 <p>{item}</p>
               </NavLink>

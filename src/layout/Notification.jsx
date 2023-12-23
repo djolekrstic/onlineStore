@@ -50,7 +50,7 @@ const Notification = () => {
             state={languageState}
             setState={setLanguageState}
           />
-          <div>
+          <div className="notification-theme">
             <label>
               <input
                 type="checkbox"

@@ -11,10 +11,15 @@ const NotificationCurrency = ({ data, icon, state, setState }) => {
 
   const handleMouseLeave = (event) => {
     const links = linksContainer.current;
-    const { left, right, bottom } = links.getBoundingClientRect();
+    const { left, right, top, bottom } = links.getBoundingClientRect();
     const { clientX, clientY } = event;
 
-    if (clientX < left + 1 || clientX > right - 1 || clientY > bottom - 1) {
+    if (
+      clientX < left + 1 ||
+      clientX > right - 1 ||
+      clientY > bottom - 1 ||
+      clientY > top + 1
+    ) {
       setState(false);
     }
   };
@@ -22,8 +27,8 @@ const NotificationCurrency = ({ data, icon, state, setState }) => {
   return (
     <div
       className="settings"
-      onPointerEnter={() => setState(true)}
-      onPointerLeave={handleMouseLeave}
+      onMouseEnter={() => setState(true)}
+      onMouseLeave={handleMouseLeave}
     >
       <button className="settings-btn" onTouchStart={() => setState(!state)}>
         {activeCurrency}
@@ -45,13 +50,18 @@ const NotificationCurrency = ({ data, icon, state, setState }) => {
         className="settings-dropdown"
         style={{
           height: `${data.items.length * 50}px`,
+          paddingTop: `${data.items.length * 1.6}em`,
           opacity: `${state ? "1" : "0"}`,
           display: `${state ? "block" : "none"}`,
         }}
       >
         {data.items.map((item) => {
           return (
-            <div key={nanoid()} onClick={() => dispatch(changeCurrency(item))}>
+            <div
+              key={nanoid()}
+              onClick={() => dispatch(changeCurrency(item))}
+              className="settings-dropdown-list"
+            >
               <p>{item}</p>
             </div>
           );
