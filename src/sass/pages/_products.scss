@@ -7,5 +7,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    select {
+      padding: 0 0.5em;
+      height: 2.3em;
+      border: none;
+      border-radius: 5px;
+      color: var(--color-base-100);
+      font-size: var(--text-sm);
+      background-color: var(--color-neutral);
+    }
   }
 }

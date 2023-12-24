@@ -5,7 +5,7 @@ const productsQuery = (params) => {
   const genreLC = genre?.toLowerCase();
 
   return {
-    queryKey: ["products", genreLC ?? "", search_key ?? ""],
+    queryKey: ["products", genreLC ?? "", search_key ?? "", page_size ?? ""],
     queryFn: () =>
       customFetch(
         `/games?genres=${genreLC}&search=${search_key}&page_size=${page_size}&key=${
