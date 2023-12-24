@@ -1,14 +1,14 @@
 import { BsSearch } from "react-icons/bs";
-import { useLoaderData } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
 import { nanoid } from "nanoid";
 
 const NavSearch = () => {
   const { genres } = useLoaderData();
 
   return (
-    <form className="search-bar">
+    <Form className="search-bar" action="/products">
       <div>
-        <select>
+        <select name="genre">
           {genres.map((genre) => {
             return (
               <option key={nanoid()} value={genre.name}>
@@ -21,14 +21,18 @@ const NavSearch = () => {
         </select>
       </div>
       <div>
-        <input type="text" placeholder="Enter your search key ..." />
+        <input
+          type="text"
+          placeholder="Enter your search key ..."
+          name="search_key"
+        />
       </div>
       <div>
         <button type="submit">
           <BsSearch />
         </button>
       </div>
-    </form>
+    </Form>
   );
 };
 export default NavSearch;

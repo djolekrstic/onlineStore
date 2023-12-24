@@ -1,8 +1,13 @@
-import { genresQuery, smallListOfGames, productQuery } from "../queries";
+import {
+  genresQuery,
+  smallListOfGames,
+  productQuery,
+  productsQuery,
+} from "../queries";
 
 const Loader =
   (queryClient) =>
-  async ({ params }) => {
+  async ({ params, request }) => {
     // genresQuery
     const genresResponse = await queryClient.ensureQueryData(genresQuery());
     const genres = genresResponse.data.results;
@@ -19,8 +24,27 @@ const Loader =
     );
     const product = productResponse.data;
 
+    // productsQuery
+    const productsParams = Object.fromEntries([
+      ...new URL(request.url).searchParams.entries(),
+    ]);
+
+    const productsResponse = await queryClient.ensureQueryData(
+      productsQuery(productsParams)
+    );
+
+    const products = productsResponse.data.results;
+    const productsGenre = productsParams.genre;
+
     // returns
-    return { genres, smallList, product };
+    return {
+      genres,
+      smallList,
+      product,
+      products,
+      productsGenre,
+      productsParams,
+    };
   };
 
 export default Loader;

@@ -21,16 +21,16 @@ const Product = ({
     "PlayStation 4": <BsPlaystation />,
     "Xbox 360": <BsXbox />,
   };
-  const date = released.split("-");
+  const date = released?.split("-") || "N/A";
   const number = Number(date[1]);
-  const platformList = platforms.map(({ platform }) => platform.name);
+  const platformList = platforms?.map(({ platform }) => platform.name);
   const platformIcons = [];
   platformList.map((platform) =>
     Object.keys(icons).forEach((key, index) => {
       if (key == platform) platformIcons.push(Object.values(icons)[index]);
     })
   );
-  const shortName = name.split(":")[0];
+  const shortName = name?.split(":")[0];
 
   return (
     <article className="product">

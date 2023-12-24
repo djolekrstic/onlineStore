@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Heading } from "../components";
+import { nanoid } from "nanoid";
 
 const SingleProductInfo = ({
   description,
@@ -103,20 +104,24 @@ const SingleProductInfo = ({
       <div className="singleProductInfo-description">
         {information ? (
           <table>
-            <tr>
-              {tableContent.map((item) => (
-                <th>{item}</th>
-              ))}
-            </tr>
-            <tr>
-              {tableInfo.map((item) => {
-                if (item != false) {
-                  return <td>{item}</td>;
-                } else {
-                  return <td>N/A</td>;
-                }
-              })}
-            </tr>
+            <thead>
+              <tr>
+                {tableContent.map((item) => (
+                  <th key={nanoid()}>{item}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {tableInfo.map((item) => {
+                  if (item != false) {
+                    return <td key={nanoid()}>{item}</td>;
+                  } else {
+                    return <td key={nanoid()}>N/A</td>;
+                  }
+                })}
+              </tr>
+            </tbody>
           </table>
         ) : (
           <ul>

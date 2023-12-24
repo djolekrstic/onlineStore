@@ -31,7 +31,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
-    errorElement: <Error />,
+    errorElement: <ErrorElement />,
     loader: Loader(queryClient),
     children: [
       {
@@ -48,6 +48,7 @@ const router = createBrowserRouter([
         path: "products",
         element: <Products />,
         errorElement: <ErrorElement />,
+        loader: Loader(queryClient),
       },
       {
         path: "products/:id",

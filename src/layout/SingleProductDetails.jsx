@@ -17,7 +17,7 @@ const SingleProductDetails = ({
 
   return (
     <section className="singleProductDetails">
-      <Breadcrumbs name={name} genres={genres} />
+      <Breadcrumbs name={name} productsGenre={genres[0].name} />
       <div className="singleProductDetails-info">
         <div className="singleProductDetails-image">
           <img src={background_image} alt={name} />

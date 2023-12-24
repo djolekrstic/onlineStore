@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import { nanoid } from "nanoid";
 
 const Banner = () => {
   const { genres } = useLoaderData();
@@ -11,7 +12,7 @@ const Banner = () => {
       <div>
         <div className="banner-background">
           {slideGenres.map(({ image_background }) => {
-            return <img src={image_background} />;
+            return <img key={nanoid()} src={image_background} />;
           })}
         </div>
         <div className="banner-background-color"></div>
