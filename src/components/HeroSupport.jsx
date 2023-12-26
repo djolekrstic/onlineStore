@@ -1,7 +1,7 @@
 import { Delivery, Box, Support, Payment } from "../svgIcons";
 
 const HeroSupport = () => {
-  const widthValue = 80;
+  const widthValue = 70;
 
   return (
     <div className="line">

@@ -46,7 +46,7 @@ const NotificationAccount = ({ data, icon, state, setState }) => {
         ref={linksContainer}
         style={{
           height: `${data.items.length * 50}px`,
-          paddingTop: `${data.items.length * 1.6}em`,
+          paddingTop: `${data.items.length * 1.8}em`,
           opacity: `${state ? "1" : "0"}`,
           display: `${state ? "block" : "none"}`,
         }}

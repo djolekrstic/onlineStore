@@ -24,7 +24,7 @@ const HeroCarousel = () => {
         return (
           <div key={nanoid()} className="genre">
             <div>
-              <img src={image_background} width="1200" height="700" />
+              <img src={image_background} width="1200" height="600" />
               <div className="genre-image-color"></div>
             </div>
             <div className="genre-info">
