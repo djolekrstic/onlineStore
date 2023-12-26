@@ -18,7 +18,7 @@ const Products = () => {
   const genre = searchParams.get("genre") || "";
   const search_key = searchParams.get("search_key") || "";
   const page_size_param = Number(searchParams.get("page_size") || "");
-  const page_num_param = Number(searchParams.get("page") || "");
+  const page_num_param = Number(searchParams.get("page") || 1);
 
   const { productsGenre, count } = useLoaderData();
 
