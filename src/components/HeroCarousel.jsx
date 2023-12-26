@@ -1,4 +1,4 @@
-import { NavLink, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Slider from "react-slick";
 import { nanoid } from "nanoid";
 
@@ -34,7 +34,9 @@ const HeroCarousel = () => {
                 <br />
                 {name} genre in our store!
               </p>
-              <NavLink className="genre-info-link">Check now</NavLink>
+              <Link className="genre-info-link" to={`products/?genre=${name}`}>
+                Check now
+              </Link>
             </div>
           </div>
         );

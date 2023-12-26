@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const HeroAdd = ({ name, image_background, sale }) => {
   return (
-    <NavLink className="add">
+    <Link className="add" to={`products/?genre=${name}`}>
       <div>
         <img src={image_background} alt={name} className="add-image" />
         <div className="add-image-color"></div>
@@ -13,7 +13,7 @@ const HeroAdd = ({ name, image_background, sale }) => {
       <div className="add-sale">
         <p>{`-${sale}%`}</p>
       </div>
-    </NavLink>
+    </Link>
   );
 };
 export default HeroAdd;

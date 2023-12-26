@@ -9,13 +9,38 @@
     align-items: center;
 
     select {
-      padding: 0 0.5em;
-      height: 2.3em;
+      padding: 0 0.6em;
+      height: 2.5em;
       border: none;
-      border-radius: 5px;
       color: var(--color-base-100);
       font-size: var(--text-sm);
       background-color: var(--color-neutral);
+    }
+  }
+
+  &-pagination {
+    &-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+    }
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3em;
+      height: 3em;
+      border: none;
+      color: var(--color-base-100);
+      font-size: var(--text-sm);
+      background-color: var(--color-neutral);
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--color-primary);
+      }
     }
   }
 }

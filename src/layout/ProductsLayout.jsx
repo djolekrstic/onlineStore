@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { Pagination, Product } from "../components";
+import { Product } from "../components";
 import { nanoid } from "nanoid";
 
 const ProductsLayout = () => {

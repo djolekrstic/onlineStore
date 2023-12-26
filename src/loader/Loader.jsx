@@ -34,6 +34,7 @@ const Loader =
     );
 
     const products = productsResponse.data.results;
+    const count = productsResponse.data.count;
     const productsGenre = productsParams.genre;
 
     // returns
@@ -44,6 +45,7 @@ const Loader =
       products,
       productsGenre,
       productsParams,
+      count,
     };
   };
 

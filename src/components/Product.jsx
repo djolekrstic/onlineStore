@@ -4,7 +4,7 @@ import { months } from "../data";
 import { BsApple, BsPlaystation, BsWindows, BsXbox } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa6";
 import { BsHeartFill } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Product = ({
   id,
@@ -30,7 +30,7 @@ const Product = ({
       if (key == platform) platformIcons.push(Object.values(icons)[index]);
     })
   );
-  const shortName = name?.split(":")[0];
+  const shortName = name?.split(":")[0].substring(0, 23);
 
   return (
     <article className="product">
@@ -38,9 +38,9 @@ const Product = ({
         <img src={background_image} alt={name} />
       </div>
       <div className="product-info">
-        <NavLink to={`/products/${id}`}>
+        <Link to={`/products/${id}`}>
           <h5 className="product-info-name">{shortName}</h5>
-        </NavLink>
+        </Link>
         <div className="product-info-section">
           <h6>Released: </h6>
           <p>{`${months[number - 1]} ${date[2]}, ${date[0]}`}</p>
