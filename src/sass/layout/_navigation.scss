@@ -19,6 +19,7 @@
     align-items: center;
     gap: 1.5em;
     color: var(--color-neutral);
+    font-size: calc(var(--text-md) / 1.1);
   }
 
   &-icon {

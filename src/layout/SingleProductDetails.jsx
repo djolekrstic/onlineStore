@@ -1,8 +1,11 @@
 import ReactStars from "react-stars";
 import { Breadcrumbs } from "../components";
 import { BsHeart } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { addLiked } from "../features/liked/likedSlice";
 
 const SingleProductDetails = ({
+  id,
   name,
   genres,
   background_image,
@@ -10,6 +13,12 @@ const SingleProductDetails = ({
   description_raw,
   ratings_count,
 }) => {
+  const dispatch = useDispatch();
+  const likedID =
+    useSelector((state) => state.likedState.likedItems).filter(
+      (item) => item.id == id
+    )[0]?.id == id;
+
   const short_description = description_raw.substring(
     0,
     description_raw.substring(0, 500).lastIndexOf(".") + 1
@@ -50,9 +59,13 @@ const SingleProductDetails = ({
             <button type="button">ADD TO CART</button>
           </div>
           <div className="singleProductDetails-wishlist">
-            <button type="button">
+            <button
+              type="button"
+              style={likedID ? { color: "var(--color-alert)" } : {}}
+              onClick={() => dispatch(addLiked({ id, name, background_image }))}
+            >
               <BsHeart />
-              Add to wishlist
+              {likedID ? "Added to wishlist" : "Add to wishlist"}
             </button>
           </div>
         </div>

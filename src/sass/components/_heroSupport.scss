@@ -24,7 +24,7 @@
       color: var(--color-neutral);
 
       p {
-        font-size: calc(var(--text-xs) / 1.1);
+        font-size: var(--text-xs);
       }
     }
   }

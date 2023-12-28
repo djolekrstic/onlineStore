@@ -12,6 +12,6 @@ import "slick-carousel/slick/slick-theme.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <App />
-    <ToastContainer position="top-center" />
+    <ToastContainer position="bottom-right" />
   </Provider>
 );

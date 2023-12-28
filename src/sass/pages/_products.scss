@@ -44,3 +44,25 @@
     }
   }
 }
+
+.remove-wishlist {
+  display: flex;
+  justify-content: end;
+
+  &-btn {
+    padding: 0 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    border: none;
+    color: var(--color-base-100);
+    font-size: var(--text-sm);
+    background-color: var(--color-neutral);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-alert);
+    }
+  }
+}

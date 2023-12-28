@@ -12,6 +12,7 @@ import {
   Products,
   ProductsLiked,
   Account,
+  Error,
 } from "./pages";
 
 import { ErrorElement } from "./components";
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
-    errorElement: <ErrorElement />,
+    errorElement: <Error />,
     loader: Loader(queryClient),
     children: [
       {

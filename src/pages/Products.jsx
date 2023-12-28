@@ -1,19 +1,9 @@
-import { Form, useLoaderData, useSearchParams } from "react-router-dom";
-import { Breadcrumbs } from "../components";
+import { useLoaderData, useSearchParams } from "react-router-dom";
+import { Breadcrumbs, Pagination, ProductPerPage } from "../components";
 import { ProductsLayout } from "../layout";
-import { nanoid } from "nanoid";
-import { useState } from "react";
-import {
-  BsArrowLeft,
-  BsArrowRight,
-  BsChevronDoubleLeft,
-  BsChevronDoubleRight,
-} from "react-icons/bs";
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  let [pageSizeParam, setPageSizeParam] = useState();
-  let [pageNumParam, setPageNumParam] = useState();
 
   const genre = searchParams.get("genre") || "";
   const search_key = searchParams.get("search_key") || "";
@@ -31,14 +21,22 @@ const Products = () => {
     }
   }
 
-  const pageSizes = [20, 16, 8, 4];
-
-  const handleSubmit = (event) => {
+  const handleSubmitSize = (event, pageSizeParam) => {
     event.preventDefault();
     setSearchParams({
       genre,
       search_key,
       page_size: pageSizeParam || page_size_param,
+      page: page_num_param,
+    });
+  };
+
+  const handleSubmitNum = (event, pageNumParam) => {
+    event.preventDefault();
+    setSearchParams({
+      genre,
+      search_key,
+      page_size: page_size_param,
       page: pageNumParam || page_num_param,
     });
   };
@@ -47,101 +45,20 @@ const Products = () => {
     <section className="margin-top">
       <div className="products-heading">
         <Breadcrumbs productsGenre={productsGenre} />
-        <Form onChange={handleSubmit}>
-          <select
-            name="page_size"
-            value={page_size_param}
-            onChange={(event) => {
-              setPageSizeParam((pageSizeParam = event.currentTarget.value));
-            }}
-          >
-            {pageSizes.map((size) => {
-              return (
-                <option key={nanoid()} value={size}>
-                  {size}
-                </option>
-              );
-            })}
-          </select>
-        </Form>
+        <ProductPerPage
+          handleSubmit={handleSubmitSize}
+          page_size_param={page_size_param}
+        />
       </div>
       <div className="products">
         <ProductsLayout />
       </div>
       <div className="margin-top products-pagination">
-        <Form onClick={handleSubmit}>
-          <div className="products-pagination-buttons">
-            {page_num_param == 1 ? (
-              ""
-            ) : (
-              <>
-                <button
-                  name="page"
-                  onClick={() => setPageNumParam((pageNumParam = 1))}
-                >
-                  <BsChevronDoubleLeft />
-                </button>
-                <button
-                  name="page"
-                  onClick={() =>
-                    setPageNumParam((pageNumParam = page_num_param - 1))
-                  }
-                >
-                  <BsArrowLeft />
-                </button>
-              </>
-            )}
-            {pages.map((pageNum) => {
-              if (
-                page_num_param == pageNum ||
-                page_num_param - 2 == pageNum ||
-                page_num_param - 1 == pageNum ||
-                page_num_param + 1 == pageNum ||
-                page_num_param + 2 == pageNum
-              ) {
-                return (
-                  <button
-                    name="page"
-                    key={nanoid()}
-                    value={pageNum}
-                    style={
-                      page_num_param == pageNum
-                        ? { backgroundColor: "var(--color-primary)" }
-                        : {}
-                    }
-                    onClick={(event) =>
-                      setPageNumParam(
-                        (pageNumParam = event.currentTarget.value)
-                      )
-                    }
-                  >
-                    {pageNum}
-                  </button>
-                );
-              }
-            })}
-            {page_num_param == pages.length ? (
-              ""
-            ) : (
-              <>
-                <button
-                  name="page"
-                  onClick={() =>
-                    setPageNumParam((pageNumParam = page_num_param + 1))
-                  }
-                >
-                  <BsArrowRight />
-                </button>
-                <button
-                  name="page"
-                  onClick={() => setPageNumParam((pageNumParam = pages.length))}
-                >
-                  <BsChevronDoubleRight />
-                </button>
-              </>
-            )}
-          </div>
-        </Form>
+        <Pagination
+          handleSubmit={handleSubmitNum}
+          page_num_param={page_num_param}
+          pages={pages}
+        />
       </div>
     </section>
   );

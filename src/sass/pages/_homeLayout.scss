@@ -1,0 +1,18 @@
+.fixed-nav {
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+  display: none;
+
+  animation-duration: 1000ms;
+  animation-direction: alternate;
+}
+
+@keyframes navbarScroll {
+  from {
+    transform: translateY(-200px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

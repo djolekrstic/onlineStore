@@ -5,6 +5,8 @@ import { BsApple, BsPlaystation, BsWindows, BsXbox } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa6";
 import { BsHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addLiked } from "../features/liked/likedSlice";
 
 const Product = ({
   id,
@@ -14,6 +16,12 @@ const Product = ({
   rating,
   platforms,
 }) => {
+  const dispatch = useDispatch();
+  const likedID =
+    useSelector((state) => state.likedState.likedItems).filter(
+      (item) => item.id == id
+    )[0]?.id == id;
+
   const icons = {
     PC: <BsWindows />,
     macOS: <BsApple />,
@@ -25,7 +33,7 @@ const Product = ({
   const number = Number(date[1]);
   const platformList = platforms?.map(({ platform }) => platform.name);
   const platformIcons = [];
-  platformList.map((platform) =>
+  platformList?.map((platform) =>
     Object.keys(icons).forEach((key, index) => {
       if (key == platform) platformIcons.push(Object.values(icons)[index]);
     })
@@ -62,7 +70,22 @@ const Product = ({
         </div>
         <div className="product-info-buttons">
           <button className="product-info-buttons-cart">add to cart</button>
-          <BsHeartFill className="product-info-buttons-liked" />
+          <BsHeartFill
+            className="product-info-buttons-liked"
+            style={likedID ? { color: "var(--color-alert)" } : {}}
+            onClick={() => {
+              dispatch(
+                addLiked({
+                  id,
+                  name,
+                  released,
+                  background_image,
+                  rating,
+                  platforms,
+                })
+              );
+            }}
+          />
         </div>
       </div>
     </article>

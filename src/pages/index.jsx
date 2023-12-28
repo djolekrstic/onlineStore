@@ -8,3 +8,4 @@ export { default as SingleProduct } from "./SingleProduct";
 export { default as Products } from "./Products";
 export { default as ProductsLiked } from "./ProductsLiked";
 export { default as Account } from "./Account";
+export { default as Error } from "./Error";
