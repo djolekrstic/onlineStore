@@ -32,7 +32,7 @@ const ProductsLikedLayout = ({
   return (
     <section className="productsLayout">
       {pages[page_num_param].map((item) => {
-        return <Product key={nanoid()} {...item} />;
+        return <Product key={nanoid()} product={item} />;
       })}
     </section>
   );

@@ -15,3 +15,4 @@ export { default as BannerSmall } from "./BannerSmall";
 export { default as Breadcrumbs } from "./Breadcrumbs";
 export { default as ProductPerPage } from "./ProductPerPage";
 export { default as Pagination } from "./Pagination";
+export { default as ProductCart } from "./ProductCart";

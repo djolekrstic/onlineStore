@@ -127,7 +127,7 @@ const SingleProductInfo = ({
           <ul>
             {descriptionList.map((item) => {
               return (
-                <li>
+                <li key={nanoid()}>
                   <p>{item}</p>
                 </li>
               );

@@ -8,7 +8,7 @@ const ProductsLayout = () => {
   return (
     <section className="productsLayout">
       {products.map((product) => {
-        return <Product key={nanoid()} {...product} />;
+        return <Product key={nanoid()} product={product} />;
       })}
     </section>
   );

@@ -7,6 +7,7 @@ const Navigation = () => {
   const productsLikedNum = useSelector(
     (state) => state.likedState.numItemsInLiked
   );
+  const productsInCart = useSelector((state) => state.cartState.numItemsInCart);
 
   return (
     <nav className="nav">
@@ -23,7 +24,9 @@ const Navigation = () => {
           <div className="nav-icon">
             <NavLink to="liked" className="nav-link">
               {productsLikedNum > 0 ? (
-                <div className="nav-icon-indicator">{productsLikedNum}</div>
+                <div className="nav-icon-indicator">
+                  <p>{productsLikedNum}</p>
+                </div>
               ) : (
                 ""
               )}
@@ -32,7 +35,13 @@ const Navigation = () => {
           </div>
           <div className="nav-icon">
             <NavLink to="cart" className="nav-link">
-              <div className="nav-icon-indicator">3</div>
+              {productsInCart > 0 ? (
+                <div className="nav-icon-indicator">
+                  <p>{productsInCart}</p>
+                </div>
+              ) : (
+                ""
+              )}
               <BsBag />
             </NavLink>
           </div>

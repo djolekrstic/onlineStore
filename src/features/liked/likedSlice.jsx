@@ -15,20 +15,21 @@ const likedSlice = createSlice({
   initialState: getLikedFromLocalStorage(),
   reducers: {
     addLiked: (state, action) => {
+      const { product } = action.payload;
       let doubleItem = false;
       state.likedItems.forEach((item) => {
-        if (item.id == action.payload.id) {
+        if (item.id == product?.id) {
           doubleItem = true;
           return;
         }
       });
       if (doubleItem) {
         state.likedItems = state.likedItems.filter(
-          (item) => item.id != action.payload.id
+          (item) => item.id != product?.id
         );
         toast.error("Product disliked.");
       } else {
-        state.likedItems.push(action.payload);
+        state.likedItems.push(product);
         toast.success("Product liked.");
       }
 

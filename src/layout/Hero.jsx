@@ -11,10 +11,10 @@ const Hero = () => {
           <HeroCarousel />
         </div>
         <div className="hero-add">
-          <HeroAdd {...genres[9]} sale={30} />
-          <HeroAdd {...genres[1]} sale={60} />
-          <HeroAdd {...genres[2]} sale={10} />
-          <HeroAdd {...genres[10]} sale={40} />
+          <HeroAdd {...genres[9]} sale={50} />
+          <HeroAdd {...genres[1]} sale={50} />
+          <HeroAdd {...genres[2]} sale={50} />
+          <HeroAdd {...genres[10]} sale={50} />
         </div>
       </div>
       <div className="hero-down">

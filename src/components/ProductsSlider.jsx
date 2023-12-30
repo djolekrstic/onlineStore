@@ -17,7 +17,7 @@ const ProductsSlider = ({ name, start, end }) => {
       <Slider {...settings}>
         {smallList.map((game, i) => {
           if (i <= end && i >= start) {
-            return <Product key={nanoid()} {...game} />;
+            return <Product key={nanoid()} product={game} />;
           }
         })}
       </Slider>

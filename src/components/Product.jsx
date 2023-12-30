@@ -7,15 +7,11 @@ import { BsHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addLiked } from "../features/liked/likedSlice";
+import { addItem } from "../features/cart/cartSlice";
 
-const Product = ({
-  id,
-  name,
-  released,
-  background_image,
-  rating,
-  platforms,
-}) => {
+const Product = ({ product }) => {
+  const { id, name, released, background_image, rating, platforms } =
+    product || {};
   const dispatch = useDispatch();
   const likedID =
     useSelector((state) => state.likedState.likedItems).filter(
@@ -39,6 +35,17 @@ const Product = ({
     })
   );
   const shortName = name?.split(":")[0].substring(0, 23);
+
+  let price =
+    rating < 2.5
+      ? 5.99
+      : Math.ceil(
+          (date[0] > 2015 ? 60 : 20) +
+            (date[0] >= 2019 ? 15 : 0) +
+            (date[0] < 2011 ? -15 : 0) +
+            Number(rating || 3.5) +
+            platforms?.length
+        ) + 0.99;
 
   return (
     <article className="product">
@@ -66,22 +73,32 @@ const Product = ({
           <ReactStars value={rating} edit={false} size={24} />
         </div>
         <div className="product-info-price">
-          <p>$10.00</p>
+          <div className="singleProductDetails-price">
+            <p className="singleProductDetails-price-full">${price}</p>
+            <p className="singleProductDetails-price-discounted">
+              ${(price * 0.5).toFixed(2)}
+            </p>
+            <p className="singleProductDetails-price-discount">Save 50%</p>
+          </div>
         </div>
         <div className="product-info-buttons">
-          <button className="product-info-buttons-cart">add to cart</button>
+          <button
+            className="product-info-buttons-cart"
+            onClick={() => {
+              dispatch(
+                addItem({ product, price: (price * 0.5).toFixed(2), amount: 1 })
+              );
+            }}
+          >
+            add to cart
+          </button>
           <BsHeartFill
             className="product-info-buttons-liked"
             style={likedID ? { color: "var(--color-alert)" } : {}}
             onClick={() => {
               dispatch(
                 addLiked({
-                  id,
-                  name,
-                  released,
-                  background_image,
-                  rating,
-                  platforms,
+                  product,
                 })
               );
             }}

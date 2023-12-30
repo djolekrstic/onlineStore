@@ -3,16 +3,25 @@ import { Breadcrumbs } from "../components";
 import { BsHeart } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { addLiked } from "../features/liked/likedSlice";
+import { addItem } from "../features/cart/cartSlice";
+import { useState } from "react";
+import { Form } from "react-router-dom";
 
-const SingleProductDetails = ({
-  id,
-  name,
-  genres,
-  background_image,
-  rating,
-  description_raw,
-  ratings_count,
-}) => {
+const SingleProductDetails = ({ product }) => {
+  const {
+    id,
+    name,
+    genres,
+    background_image,
+    rating,
+    description_raw,
+    ratings_count,
+    released,
+    platforms,
+  } = product;
+
+  let [amount, setAmount] = useState(1);
+
   const dispatch = useDispatch();
   const likedID =
     useSelector((state) => state.likedState.likedItems).filter(
@@ -23,6 +32,18 @@ const SingleProductDetails = ({
     0,
     description_raw.substring(0, 500).lastIndexOf(".") + 1
   );
+  const date = released?.split("-") || "N/A";
+
+  let price =
+    rating < 2.5
+      ? 5.99
+      : Math.ceil(
+          (date[0] > 2015 ? 60 : 20) +
+            (date[0] >= 2019 ? 15 : 0) +
+            (date[0] < 2011 ? -15 : 0) +
+            Number(rating || 3.5) +
+            platforms?.length
+        ) + 0.99;
 
   return (
     <section className="singleProductDetails">
@@ -39,8 +60,10 @@ const SingleProductDetails = ({
               <p>({ratings_count} reviews)</p>
             </div>
             <div className="singleProductDetails-price">
-              <p className="singleProductDetails-price-full">$10.00</p>
-              <p className="singleProductDetails-price-discounted">$5.00</p>
+              <p className="singleProductDetails-price-full">${price}</p>
+              <p className="singleProductDetails-price-discounted">
+                ${(price * 0.5).toFixed(2)}
+              </p>
               <p className="singleProductDetails-price-discount">Save 50%</p>
             </div>
           </div>
@@ -48,21 +71,35 @@ const SingleProductDetails = ({
             {short_description}
           </p>
           <div className="singleProductDetails-divider"></div>
-          <div className="singleProductDetails-quantity">
+          <Form className="singleProductDetails-quantity">
             <input
               type="number"
               name="quantity"
               id="quantity"
-              placeholder={1}
+              defaultValue={1}
               min={1}
+              onChange={(e) => setAmount((amount = e.currentTarget.value))}
             />
-            <button type="button">ADD TO CART</button>
-          </div>
+            <button
+              type="button"
+              onClick={() =>
+                dispatch(
+                  addItem({
+                    product,
+                    price: (price * 0.5).toFixed(2),
+                    amount,
+                  })
+                )
+              }
+            >
+              ADD TO CART
+            </button>
+          </Form>
           <div className="singleProductDetails-wishlist">
             <button
               type="button"
               style={likedID ? { color: "var(--color-alert)" } : {}}
-              onClick={() => dispatch(addLiked({ id, name, background_image }))}
+              onClick={() => dispatch(addLiked({ product }))}
             >
               <BsHeart />
               {likedID ? "Added to wishlist" : "Add to wishlist"}
