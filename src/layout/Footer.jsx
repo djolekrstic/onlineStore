@@ -77,6 +77,14 @@ const Footer = () => {
             <p>Copyright © Ђорђе Крстић | All Rights Reserved</p>
           </div>
           <div>
+            <p>
+              API:{" "}
+              <a href="https://www.rawg.io">
+                RAWG - The Biggest Video Game API
+              </a>
+            </p>
+          </div>
+          <div>
             <img src={payment} alt="payment" />
           </div>
         </div>
