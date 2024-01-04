@@ -28,21 +28,38 @@ const SingleProductDetails = ({ product }) => {
       (item) => item.id == id
     )[0]?.id == id;
 
+  const selectedCurrency = useSelector((state) => state.userState.currency);
+
   const short_description = description_raw.substring(
     0,
     description_raw.substring(0, 500).lastIndexOf(".") + 1
   );
   const date = released?.split("-") || "N/A";
 
+  let selectedCurrencyValue = 1;
+  let selectedCurrencySign = "$";
+  const handleCurrency = (selectedCurrency) => {
+    if (selectedCurrency === "RSD") {
+      selectedCurrencyValue = 107;
+      selectedCurrencySign = "RSD ";
+    }
+    if (selectedCurrency === "EUR") {
+      selectedCurrencyValue = 0.9;
+      selectedCurrencySign = "€";
+    }
+  };
+  handleCurrency(selectedCurrency);
+
   let price =
     rating < 2.5
-      ? 5.99
+      ? 5.99 * selectedCurrencyValue
       : Math.ceil(
-          (date[0] > 2015 ? 60 : 20) +
+          ((date[0] > 2015 ? 60 : 20) +
             (date[0] >= 2019 ? 15 : 0) +
             (date[0] < 2011 ? -15 : 0) +
             Number(rating || 3.5) +
-            platforms?.length
+            platforms?.length) *
+            selectedCurrencyValue
         ) + 0.99;
 
   return (
@@ -60,9 +77,13 @@ const SingleProductDetails = ({ product }) => {
               <p>({ratings_count} reviews)</p>
             </div>
             <div className="singleProductDetails-price">
-              <p className="singleProductDetails-price-full">${price}</p>
+              <p className="singleProductDetails-price-full">
+                {selectedCurrencySign}
+                {price}
+              </p>
               <p className="singleProductDetails-price-discounted">
-                ${(price * 0.5).toFixed(2)}
+                {selectedCurrencySign}
+                {(price * 0.5).toFixed(2)}
               </p>
               <p className="singleProductDetails-price-discount">Save 50%</p>
             </div>

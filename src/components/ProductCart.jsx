@@ -1,6 +1,6 @@
 import { BsChevronUp, BsChevronDown, BsTrash } from "react-icons/bs";
 import { removeItem, editItem } from "../features/cart/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 const ProductCart = ({ product }) => {
@@ -8,6 +8,22 @@ const ProductCart = ({ product }) => {
   const { background_image, name, priceNum, amountNum } = product;
   let [newAmount, setNewAmount] = useState(amountNum);
   const shortName = name?.split(":")[0].substring(0, 23);
+
+  const selectedCurrency = useSelector((state) => state.userState.currency);
+
+  let selectedCurrencyValue = 1;
+  let selectedCurrencySign = "$";
+  const handleCurrency = (selectedCurrency) => {
+    if (selectedCurrency === "RSD") {
+      selectedCurrencyValue = 107;
+      selectedCurrencySign = "RSD ";
+    }
+    if (selectedCurrency === "EUR") {
+      selectedCurrencyValue = 0.9;
+      selectedCurrencySign = "€";
+    }
+  };
+  handleCurrency(selectedCurrency);
 
   return (
     <article className="productCart">
@@ -18,7 +34,8 @@ const ProductCart = ({ product }) => {
         <p>{shortName}</p>
       </div>
       <div className="productCart-price">
-        ${(priceNum * amountNum).toFixed(2)}
+        {selectedCurrencySign}
+        {(priceNum * amountNum * selectedCurrencyValue).toFixed(2)}
       </div>
       <div className="productCart-amount">
         <button

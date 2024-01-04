@@ -18,6 +18,8 @@ const Product = ({ product }) => {
       (item) => item.id == id
     )[0]?.id == id;
 
+  const selectedCurrency = useSelector((state) => state.userState.currency);
+
   const icons = {
     PC: <BsWindows />,
     macOS: <BsApple />,
@@ -36,15 +38,30 @@ const Product = ({ product }) => {
   );
   const shortName = name?.split(":")[0].substring(0, 23);
 
+  let selectedCurrencyValue = 1;
+  let selectedCurrencySign = "$";
+  const handleCurrency = (selectedCurrency) => {
+    if (selectedCurrency === "RSD") {
+      selectedCurrencyValue = 107;
+      selectedCurrencySign = "RSD ";
+    }
+    if (selectedCurrency === "EUR") {
+      selectedCurrencyValue = 0.9;
+      selectedCurrencySign = "€";
+    }
+  };
+  handleCurrency(selectedCurrency);
+
   let price =
     rating < 2.5
-      ? 5.99
+      ? 5.99 * selectedCurrencyValue
       : Math.ceil(
-          (date[0] > 2015 ? 60 : 20) +
+          ((date[0] > 2015 ? 60 : 20) +
             (date[0] >= 2019 ? 15 : 0) +
             (date[0] < 2011 ? -15 : 0) +
             Number(rating || 3.5) +
-            platforms?.length
+            platforms?.length) *
+            selectedCurrencyValue
         ) + 0.99;
 
   return (
@@ -73,20 +90,17 @@ const Product = ({ product }) => {
           <ReactStars value={rating} edit={false} size={24} />
         </div>
         <div className="product-info-price">
-          <div className="singleProductDetails-price">
-            <p className="singleProductDetails-price-full">${price}</p>
-            <p className="singleProductDetails-price-discounted">
-              ${(price * 0.5).toFixed(2)}
-            </p>
-            <p className="singleProductDetails-price-discount">Save 50%</p>
-          </div>
+          <p>
+            {selectedCurrencySign}
+            {price.toFixed(2)}
+          </p>
         </div>
         <div className="product-info-buttons">
           <button
             className="product-info-buttons-cart"
             onClick={() => {
               dispatch(
-                addItem({ product, price: (price * 0.5).toFixed(2), amount: 1 })
+                addItem({ product, price: price.toFixed(2), amount: 1 })
               );
             }}
           >
