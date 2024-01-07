@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { changeLanguage } from "../features/user/userSlice";
 import { nanoid } from "nanoid";
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 const NotificationLanguage = ({ data, icon, state, setState }) => {
   const dispatch = useDispatch();
@@ -73,4 +73,4 @@ const NotificationLanguage = ({ data, icon, state, setState }) => {
     </div>
   );
 };
-export default NotificationLanguage;
+export default React.memo(NotificationLanguage);

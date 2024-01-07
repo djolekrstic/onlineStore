@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { ProductCart } from "../components";
 import { nanoid } from "nanoid";
+import React from "react";
 
 const ProductsCartLayout = ({ page_num_param, pageNumber, itemsPerPage }) => {
   const products = useSelector((state) => state.cartState.cartItems);
@@ -22,7 +23,6 @@ const ProductsCartLayout = ({ page_num_param, pageNumber, itemsPerPage }) => {
       }
       pages.push(page);
     }
-    console.log(pages);
   };
   handlePages(pageNumber);
 
@@ -36,4 +36,4 @@ const ProductsCartLayout = ({ page_num_param, pageNumber, itemsPerPage }) => {
     </section>
   );
 };
-export default ProductsCartLayout;
+export default React.memo(ProductsCartLayout);

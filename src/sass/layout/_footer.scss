@@ -1,3 +1,5 @@
+@use "../base/breakpoints" as *;
+
 .footer {
   display: flex;
   flex-direction: column;
@@ -7,7 +9,7 @@
   &-top {
     margin: 3em 0;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
     gap: 3em;
 
     h6 {
@@ -45,6 +47,12 @@
       flex-direction: column;
       align-items: start;
       gap: 1em;
+
+      &-div {
+        display: flex;
+        justify-content: space-between;
+        gap: 3em;
+      }
 
       ul {
         padding-left: 0;
@@ -124,4 +132,22 @@
 .telephone-icon {
   color: var(--color-neutral);
   font-size: 2em;
+}
+
+@include breakpoint(lg) {
+  .footer {
+    &-top {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 3em;
+    }
+
+    &-bottom {
+      padding-top: 3em;
+      flex-direction: column;
+      gap: 1em;
+    }
+  }
 }

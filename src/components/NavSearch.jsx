@@ -1,6 +1,7 @@
 import { BsSearch } from "react-icons/bs";
 import { Form, useLoaderData } from "react-router-dom";
 import { nanoid } from "nanoid";
+import React from "react";
 
 const NavSearch = () => {
   const { genres } = useLoaderData();
@@ -35,4 +36,4 @@ const NavSearch = () => {
     </Form>
   );
 };
-export default NavSearch;
+export default React.memo(NavSearch);

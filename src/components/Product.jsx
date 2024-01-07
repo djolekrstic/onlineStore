@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addLiked } from "../features/liked/likedSlice";
 import { addItem } from "../features/cart/cartSlice";
+import React from "react";
 
 const Product = ({ product }) => {
   const { id, name, released, background_image, rating, platforms } =
@@ -122,4 +123,4 @@ const Product = ({ product }) => {
     </article>
   );
 };
-export default Product;
+export default React.memo(Product);

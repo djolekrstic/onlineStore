@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { nanoid } from "nanoid";
+import React from "react";
 
 const BannerSmall = ({ genre, ad }) => {
   const { genres } = useLoaderData();
@@ -8,7 +9,7 @@ const BannerSmall = ({ genre, ad }) => {
   const slideGenres = genres.filter(({ name }) => slideNames.includes(name));
 
   return (
-    <section className="banner margin-top">
+    <section className="banner">
       <Link to={`products/?genre=${genre}`}>
         <div>
           <div className="banner-small-background">
@@ -20,11 +21,11 @@ const BannerSmall = ({ genre, ad }) => {
         </div>
         <div className="banner-text">
           <div className="banner-text-div">
-            <p>{ad}</p>
+            <p className="banner-text-smallBanner">{ad}</p>
           </div>
         </div>
       </Link>
     </section>
   );
 };
-export default BannerSmall;
+export default React.memo(BannerSmall);

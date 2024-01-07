@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { NavSearch } from "../components";
 import { BsHeart, BsBag } from "react-icons/bs";
+import { MdMenu } from "react-icons/md";
 import { useSelector } from "react-redux";
+import React from "react";
 
 const Navigation = () => {
   const productsLikedNum = useSelector(
@@ -17,7 +19,7 @@ const Navigation = () => {
             online<span>Games</span>
           </NavLink>
         </div>
-        <div>
+        <div className="nav-search">
           <NavSearch />
         </div>
         <div className="nav-icons">
@@ -46,8 +48,11 @@ const Navigation = () => {
             </NavLink>
           </div>
         </div>
+        <div className="nav-mobile-menu">
+          <MdMenu />
+        </div>
       </div>
     </nav>
   );
 };
-export default Navigation;
+export default React.memo(Navigation);

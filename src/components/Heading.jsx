@@ -1,3 +1,5 @@
+import React from "react";
+
 const Heading = ({ content }) => {
   return (
     <div className="content">
@@ -5,4 +7,4 @@ const Heading = ({ content }) => {
     </div>
   );
 };
-export default Heading;
+export default React.memo(Heading);

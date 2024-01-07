@@ -6,6 +6,5 @@ export { default as Footer } from "./Footer";
 export { default as SingleProductDetails } from "./SingleProductDetails";
 export { default as SingleProductInfo } from "./SingleProductInfo";
 export { default as ProductsLayout } from "./ProductsLayout";
-export { default as Filters } from "./Filters";
 export { default as ProductsLikedLayout } from "./ProductsLikedLayout";
 export { default as ProductsCartLayout } from "./ProductsCartLayout";

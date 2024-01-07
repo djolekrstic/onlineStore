@@ -39,21 +39,23 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="footer-top-info">
-            <h6>INFORMATION</h6>
-            <ul>
-              {footerInfo.map((item) => {
-                return <li key={nanoid()}>{item}</li>;
-              })}
-            </ul>
-          </div>
-          <div className="footer-top-info">
-            <h6>CUSTOM LINKS</h6>
-            <ul>
-              {footerLinks.map((item) => {
-                return <li key={nanoid()}>{item}</li>;
-              })}
-            </ul>
+          <div className="footer-top-info-div">
+            <div className="footer-top-info">
+              <h6>INFORMATION</h6>
+              <ul>
+                {footerInfo.map((item) => {
+                  return <li key={nanoid()}>{item}</li>;
+                })}
+              </ul>
+            </div>
+            <div className="footer-top-info">
+              <h6>CUSTOM LINKS</h6>
+              <ul>
+                {footerLinks.map((item) => {
+                  return <li key={nanoid()}>{item}</li>;
+                })}
+              </ul>
+            </div>
           </div>
           <div className="footer-top-newsletter">
             <h6>NEWSLETTER</h6>

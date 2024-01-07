@@ -1,6 +1,6 @@
 import { Form } from "react-router-dom";
 import { nanoid } from "nanoid";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const ProductPerPage = ({ handleSubmit, page_size_param }) => {
   let [pageSizeParam, setPageSizeParam] = useState();
@@ -26,4 +26,4 @@ const ProductPerPage = ({ handleSubmit, page_size_param }) => {
     </Form>
   );
 };
-export default ProductPerPage;
+export default React.memo(ProductPerPage);

@@ -1,3 +1,5 @@
+@use "./breakpoints" as *;
+
 * {
   box-sizing: border-box;
 }
@@ -7,8 +9,7 @@ body {
 }
 
 .align-element {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   max-width: 1360px;
 }
 
@@ -32,5 +33,11 @@ body {
   a {
     text-decoration: none;
     color: var(--color-primary);
+  }
+}
+
+@include breakpoint(xxl) {
+  .align-element {
+    margin: 0 1em;
   }
 }

@@ -12,12 +12,12 @@ const getThemeFromLocalStorage = () => {
 };
 
 const getCurrencyFromLocalStorage = () => {
-  const currency = localStorage.getItem("currency") || "RSD";
+  const currency = localStorage.getItem("currency") || "USD";
   return currency;
 };
 
 const getLanguageFromLocalStorage = () => {
-  const language = localStorage.getItem("language") || "serbian";
+  const language = localStorage.getItem("language") || "en";
   return language;
 };
 

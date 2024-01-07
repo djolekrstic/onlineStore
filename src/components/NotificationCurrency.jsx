@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { changeCurrency } from "../features/user/userSlice";
 import { nanoid } from "nanoid";
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 const NotificationCurrency = ({ data, icon, state, setState }) => {
   const dispatch = useDispatch();
@@ -70,4 +70,4 @@ const NotificationCurrency = ({ data, icon, state, setState }) => {
     </div>
   );
 };
-export default NotificationCurrency;
+export default React.memo(NotificationCurrency);

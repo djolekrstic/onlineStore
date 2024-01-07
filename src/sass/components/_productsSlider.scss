@@ -1,8 +1,12 @@
-.slick-prev::before {
-  color: var(--color-neutral) !important;
-  font-size: 32px !important;
+@use "../base/breakpoints" as *;
+
+.slick-slide > div {
+  display: grid;
+  place-items: center;
 }
-.slick-next::before {
-  color: var(--color-neutral) !important;
-  font-size: 32px !important;
+
+@include breakpoint(lg) {
+  .productsSlider {
+    text-align: center;
+  }
 }

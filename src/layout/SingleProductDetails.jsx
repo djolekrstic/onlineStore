@@ -6,6 +6,7 @@ import { addLiked } from "../features/liked/likedSlice";
 import { addItem } from "../features/cart/cartSlice";
 import { useState } from "react";
 import { Form } from "react-router-dom";
+import React from "react";
 
 const SingleProductDetails = ({ product }) => {
   const {
@@ -131,4 +132,4 @@ const SingleProductDetails = ({ product }) => {
     </section>
   );
 };
-export default SingleProductDetails;
+export default React.memo(SingleProductDetails);

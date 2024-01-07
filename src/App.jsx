@@ -19,6 +19,7 @@ import { ErrorElement } from "./components";
 
 // loaders
 import Loader from "./loader/Loader";
+import { useSelector } from "react-redux";
 
 const queryClient = new QueryClient({
   defaultOptions: {

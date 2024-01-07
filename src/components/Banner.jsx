@@ -20,9 +20,14 @@ const Banner = () => {
         </div>
         <div className="banner-text">
           <div className="banner-text-div">
-            <p>
+            <p className="banner-text-desktop">
               "Diverse genres, endless thrills - level up your gaming
               experience!"
+            </p>
+            <p className="banner-text-mobile">
+              "Diverse genres, endless thrills
+              <br />
+              level up your gaming experience!"
             </p>
           </div>
         </div>

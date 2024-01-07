@@ -1,3 +1,5 @@
+@use "../base/breakpoints" as *;
+
 .notification {
   padding: 0.2em 0;
   width: 100%;
@@ -24,6 +26,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &-dropdowns {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   &-theme {
@@ -34,4 +42,20 @@
 .themeIcon {
   color: var(--color-neutral);
   cursor: pointer;
+}
+
+@include breakpoint(xxl) {
+  .notification {
+    padding: 0.2em 1.5em;
+  }
+}
+
+@include breakpoint(md) {
+  .notification {
+    padding: 0.5em 1em;
+
+    &-right-dropdowns {
+      display: none;
+    }
+  }
 }

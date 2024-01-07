@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Heading } from "../components";
 import { nanoid } from "nanoid";
 
@@ -138,4 +138,4 @@ const SingleProductInfo = ({
     </section>
   );
 };
-export default SingleProductInfo;
+export default React.memo(SingleProductInfo);

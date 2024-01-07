@@ -1,3 +1,5 @@
+@use "../base/breakpoints" as *;
+
 .banner {
   position: relative;
   width: 100%;
@@ -50,13 +52,48 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
-      p {
-        color: var(--color-white);
-        font-weight: 900;
-        font-size: var(--text-md);
-        text-transform: uppercase;
-      }
     }
+
+    &-desktop {
+      color: var(--color-white);
+      font-weight: 900;
+      font-size: calc(var(--text-md) / 1.1);
+      text-transform: uppercase;
+    }
+
+    &-mobile {
+      display: none;
+      color: var(--color-white);
+      font-weight: 900;
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+    }
+
+    &-smallBanner {
+      color: var(--color-white);
+      font-weight: 900;
+      font-size: calc(var(--text-md) / 1.2);
+      text-transform: uppercase;
+    }
+  }
+}
+
+@include breakpoint(lg) {
+  .banner {
+    &-text-desktop {
+      display: none;
+    }
+    &-text-mobile {
+      display: block;
+    }
+    &-text-smallBanner {
+      font-size: var(--text-xs);
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .banner-text-mobile {
+    font-size: var(--text-xs);
   }
 }

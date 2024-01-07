@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Slider from "react-slick";
 import { nanoid } from "nanoid";
+import React from "react";
 
 const HeroCarousel = () => {
   const { genres } = useLoaderData();
@@ -23,8 +24,12 @@ const HeroCarousel = () => {
       {slideGenres.map(({ name, games_count, image_background }) => {
         return (
           <div key={nanoid()} className="genre">
-            <div>
-              <img src={image_background} width="1200" height="600" />
+            <div className="genre-image-div">
+              <img
+                className="genre-image"
+                src={image_background}
+                width="1200"
+              />
               <div className="genre-image-color"></div>
             </div>
             <div className="genre-info">
@@ -44,4 +49,4 @@ const HeroCarousel = () => {
     </Slider>
   );
 };
-export default HeroCarousel;
+export default React.memo(HeroCarousel);

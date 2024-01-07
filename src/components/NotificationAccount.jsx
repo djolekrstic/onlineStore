@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
 
 const NotificationAccount = ({ data, icon, state, setState }) => {
@@ -64,4 +64,4 @@ const NotificationAccount = ({ data, icon, state, setState }) => {
     </div>
   );
 };
-export default NotificationAccount;
+export default React.memo(NotificationAccount);

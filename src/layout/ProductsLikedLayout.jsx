@@ -1,5 +1,6 @@
 import { Product } from "../components";
 import { nanoid } from "nanoid";
+import React from "react";
 import { useSelector } from "react-redux";
 
 const ProductsLikedLayout = ({
@@ -37,4 +38,4 @@ const ProductsLikedLayout = ({
     </section>
   );
 };
-export default ProductsLikedLayout;
+export default React.memo(ProductsLikedLayout);

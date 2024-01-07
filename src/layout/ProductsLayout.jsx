@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { Product } from "../components";
 import { nanoid } from "nanoid";
+import React from "react";
 
 const ProductsLayout = () => {
   const { products } = useLoaderData();
@@ -13,4 +14,4 @@ const ProductsLayout = () => {
     </section>
   );
 };
-export default ProductsLayout;
+export default React.memo(ProductsLayout);

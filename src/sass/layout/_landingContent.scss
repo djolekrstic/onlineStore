@@ -1,4 +1,13 @@
+@use "../base/breakpoints" as *;
+
 .banner-small {
   display: flex;
   gap: 3em;
+}
+
+@include breakpoint(md) {
+  .banner-small {
+    flex-direction: column;
+    gap: 1em;
+  }
 }

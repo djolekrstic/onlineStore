@@ -1,6 +1,7 @@
 import { useLoaderData, useSearchParams } from "react-router-dom";
 import { Breadcrumbs, Pagination, ProductPerPage } from "../components";
 import { ProductsLayout } from "../layout";
+import React from "react";
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -63,4 +64,4 @@ const Products = () => {
     </section>
   );
 };
-export default Products;
+export default React.memo(Products);

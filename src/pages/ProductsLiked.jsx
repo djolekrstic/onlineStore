@@ -6,7 +6,7 @@ import {
   Pagination,
   ProductPerPage,
 } from "../components";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ProductsLikedLayout } from "../layout";
 import { removeAll } from "../features/liked/likedSlice";
 
@@ -120,4 +120,4 @@ const ProductsLiked = () => {
 };
 
 // Exporting the ProductsLiked component as the default export
-export default ProductsLiked;
+export default React.memo(ProductsLiked);

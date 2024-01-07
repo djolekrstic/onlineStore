@@ -1,3 +1,5 @@
+@use "../base/breakpoints" as *;
+
 .svgColor {
   color: var(--color-neutral);
 }
@@ -25,6 +27,36 @@
 
       p {
         font-size: var(--text-xs);
+      }
+    }
+  }
+}
+
+@include breakpoint(xl) {
+  .line {
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    gap: 2em;
+
+    &-item {
+      justify-content: start;
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .line {
+    grid-template-columns: 1fr;
+  }
+}
+
+@include breakpoint(sm) {
+  .line {
+    &-item {
+      flex-direction: column;
+
+      &-info {
+        align-items: center;
       }
     }
   }

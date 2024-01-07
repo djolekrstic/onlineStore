@@ -1,5 +1,11 @@
+@use "../base/breakpoints" as *;
+
 .genre {
   position: relative;
+
+  &-image {
+    height: 600px;
+  }
 
   &-image-color {
     width: 100%;
@@ -44,6 +50,53 @@
 
     &-button:hover {
       opacity: 0.9;
+    }
+  }
+}
+
+@include breakpoint(lg) {
+  .genre {
+    &-image {
+      height: 500px;
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .genre {
+    &-image {
+      height: 400px;
+    }
+    &-info {
+      margin-left: 3em;
+
+      &-name {
+        font-size: var(--text-2xl);
+      }
+
+      &-details {
+        font-size: var(--text-sm);
+      }
+
+      &-link {
+        font-size: var(--text-sm);
+      }
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .genre {
+    &-image {
+      height: 300px;
+    }
+
+    &-info {
+      margin-left: 1em;
+
+      &-details {
+        font-size: calc(var(--text-sm) / 1.1);
+      }
     }
   }
 }

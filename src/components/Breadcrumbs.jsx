@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Breadcrumbs = ({ name, productsGenre }) => {
@@ -22,4 +23,4 @@ const Breadcrumbs = ({ name, productsGenre }) => {
     </div>
   );
 };
-export default Breadcrumbs;
+export default React.memo(Breadcrumbs);

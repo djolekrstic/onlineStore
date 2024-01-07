@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { SingleProductDetails, SingleProductInfo } from "../layout";
 import { ProductsSlider } from "../components";
+import React from "react";
 
 const SingleProduct = () => {
   const { product } = useLoaderData();
@@ -13,4 +14,4 @@ const SingleProduct = () => {
     </main>
   );
 };
-export default SingleProduct;
+export default React.memo(SingleProduct);

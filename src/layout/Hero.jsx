@@ -1,3 +1,4 @@
+import React from "react";
 import { HeroCarousel, HeroAdd, HeroSupport } from "../components";
 import { useLoaderData } from "react-router-dom";
 
@@ -23,4 +24,4 @@ const Hero = () => {
     </section>
   );
 };
-export default Hero;
+export default React.memo(Hero);

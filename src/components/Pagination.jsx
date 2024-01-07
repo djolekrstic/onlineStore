@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   BsArrowLeft,
   BsArrowRight,
@@ -85,4 +85,4 @@ const Pagination = ({ handleSubmit, page_num_param, pages }) => {
     </Form>
   );
 };
-export default Pagination;
+export default React.memo(Pagination);

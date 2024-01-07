@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { account, currency, language } from "../data";
 import { BsChevronDown, BsMoon, BsSun } from "react-icons/bs";
 import {
@@ -29,27 +29,29 @@ const Notification = () => {
           <p>Welcome to the onlineGames!</p>
         </div>
         <div className="notification-right">
-          {/* Account */}
-          <NotificationAccount
-            data={account}
-            icon={<BsChevronDown />}
-            state={accountState}
-            setState={setAccountState}
-          />
-          {/* Currency */}
-          <NotificationCurrency
-            data={currency}
-            icon={<BsChevronDown />}
-            state={currencyState}
-            setState={setCurrencyState}
-          />
-          {/* Language */}
-          <NotificationLanguage
-            data={language}
-            icon={<BsChevronDown />}
-            state={languageState}
-            setState={setLanguageState}
-          />
+          <div className="notification-right-dropdowns">
+            {/* Account */}
+            <NotificationAccount
+              data={account}
+              icon={<BsChevronDown />}
+              state={accountState}
+              setState={setAccountState}
+            />
+            {/* Currency */}
+            <NotificationCurrency
+              data={currency}
+              icon={<BsChevronDown />}
+              state={currencyState}
+              setState={setCurrencyState}
+            />
+            {/* Language */}
+            <NotificationLanguage
+              data={language}
+              icon={<BsChevronDown />}
+              state={languageState}
+              setState={setLanguageState}
+            />
+          </div>
           <div className="notification-theme">
             <label>
               <input
@@ -69,4 +71,4 @@ const Notification = () => {
     </section>
   );
 };
-export default Notification;
+export default React.memo(Notification);

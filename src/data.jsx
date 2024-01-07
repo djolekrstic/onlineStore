@@ -9,7 +9,7 @@ export const currency = {
 };
 
 export const language = {
-  language: ["serbian", "english"],
+  language: ["sr", "en"],
   items: [
     <span>&#127479;&#127480; Српски</span>,
     <span>&#127482;&#127480; English</span>,

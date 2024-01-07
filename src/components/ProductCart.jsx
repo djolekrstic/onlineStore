@@ -1,7 +1,7 @@
 import { BsChevronUp, BsChevronDown, BsTrash } from "react-icons/bs";
 import { removeItem, editItem } from "../features/cart/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const ProductCart = ({ product }) => {
   const dispatch = useDispatch();
@@ -68,4 +68,4 @@ const ProductCart = ({ product }) => {
     </article>
   );
 };
-export default ProductCart;
+export default React.memo(ProductCart);
