@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { NavSearch } from "../components";
 import { BsHeart, BsBag } from "react-icons/bs";
-import { MdMenu } from "react-icons/md";
+import { MdMenu, MdClear } from "react-icons/md";
 import { useSelector } from "react-redux";
-import React from "react";
+import React, { useState } from "react";
 
 const Navigation = () => {
+  const [open, setOpen] = useState(false);
+
   const productsLikedNum = useSelector(
     (state) => state.likedState.numItemsInLiked
   );
@@ -49,9 +51,19 @@ const Navigation = () => {
           </div>
         </div>
         <div className="nav-mobile-menu">
-          <MdMenu />
+          <label>
+            <input
+              type="checkbox"
+              checked={open}
+              onChange={() => setOpen(!open)}
+            />
+            <span style={{ cursor: "pointer" }}>
+              {open ? <MdClear /> : <MdMenu />}
+            </span>
+          </label>
         </div>
       </div>
+      <div className={`nav-sidebar ${open && "nav-sidebar-open"}`}>d</div>
     </nav>
   );
 };
