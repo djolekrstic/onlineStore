@@ -72,7 +72,7 @@ const ProductsLiked = () => {
   };
 
   // Conditional rendering in case there are no liked products
-  if (pages.length == 0) {
+  if (pages.length === 0) {
     return (
       <section className="margin-top empty-pages">
         <Heading content="There are no games in your wishlist." />
@@ -94,13 +94,16 @@ const ProductsLiked = () => {
           pageNumber={Number(pageNumber)}
         />
       </div>
-      <div className="margin-top products-pagination">
-        <Pagination
-          handleSubmit={handleSubmitNum}
-          page_num_param={Number(page_num_param)}
-          pages={pages}
-        />
-      </div>
+      {pages.length === 1 ? null : (
+        <div className="margin-top products-pagination">
+          <Pagination
+            handleSubmit={handleSubmitNum}
+            page_num_param={Number(page_num_param)}
+            pages={pages}
+          />
+        </div>
+      )}
+
       <div className="remove-wishlist">
         <button
           className="remove-wishlist-btn"

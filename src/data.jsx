@@ -3,12 +3,12 @@ export const account = {
   items: ["My account", "Checkout", "Login/Register"],
   routes: ["account", "checkout", "login"],
 };
-
 export const currency = {
+  name: "Currency",
   items: ["RSD", "USD", "EUR"],
 };
-
 export const language = {
+  name: "Language",
   language: ["sr", "en"],
   items: [
     <span>&#127479;&#127480; Српски</span>,

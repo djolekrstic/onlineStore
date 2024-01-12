@@ -34,7 +34,9 @@ const HomeLayout = () => {
       <Notification />
       <Navigation />
       {isPageLoading ? (
-        <Loading />
+        <section className="loader-section">
+          <Loading />
+        </section>
       ) : (
         <section className="align-element">
           <Outlet />

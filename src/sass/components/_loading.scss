@@ -5,6 +5,12 @@
   width: 400px;
   height: 400px;
   color: var(--color-primary);
+
+  &-section {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
 }
 .loader:before,
 .loader:after {

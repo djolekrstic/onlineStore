@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { NavSearch } from "../components";
+import { NavigationMobile } from "./";
 import { BsHeart, BsBag } from "react-icons/bs";
-import { MdMenu, MdClear } from "react-icons/md";
 import { useSelector } from "react-redux";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
@@ -12,6 +12,10 @@ const Navigation = () => {
     (state) => state.likedState.numItemsInLiked
   );
   const productsInCart = useSelector((state) => state.cartState.numItemsInCart);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+  }, [open]);
 
   return (
     <nav className="nav">
@@ -50,20 +54,8 @@ const Navigation = () => {
             </NavLink>
           </div>
         </div>
-        <div className="nav-mobile-menu">
-          <label>
-            <input
-              type="checkbox"
-              checked={open}
-              onChange={() => setOpen(!open)}
-            />
-            <span style={{ cursor: "pointer" }}>
-              {open ? <MdClear /> : <MdMenu />}
-            </span>
-          </label>
-        </div>
+        <NavigationMobile open={open} setOpen={setOpen} />
       </div>
-      <div className={`nav-sidebar ${open && "nav-sidebar-open"}`}>d</div>
     </nav>
   );
 };

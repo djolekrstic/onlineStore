@@ -1,6 +1,7 @@
 @use "../base/breakpoints" as *;
 
 .footer {
+  padding: 0 1em;
   display: flex;
   flex-direction: column;
   background-color: var(--color-base-200);

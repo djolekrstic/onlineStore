@@ -23,6 +23,10 @@
     gap: 1.5em;
     color: var(--color-neutral);
     font-size: calc(var(--text-md) / 1.1);
+
+    &-mobile {
+      display: none;
+    }
   }
 
   &-icon {
@@ -64,19 +68,78 @@
   }
 
   &-sidebar {
-    width: 0;
+    padding: 1em 1em;
+    width: 576px;
     position: absolute;
     top: 0;
     left: 0;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
     z-index: 1;
-    background-color: var(--color-base-100);
+    background-color: var(--color-base-200);
+    transform: translateX(-576px);
 
-    transition: width 600ms ease-in-out;
+    transition: transform 600ms ease-in-out;
+
+    h5 {
+      color: var(--color-neutral);
+      line-height: 1;
+    }
 
     &-open {
-      width: 100%;
+      transform: translateX(0px);
+    }
+
+    &-dropdowns {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      gap: 1em;
+
+      div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+      }
+
+      ul {
+        display: flex;
+        padding: 0;
+        list-style-type: none;
+
+        a {
+          color: var(--color-neutral);
+          text-decoration: none;
+        }
+      }
+
+      li {
+        padding: 1em 1em;
+        display: block;
+        color: var(--color-neutral);
+        font-size: var(--text-sm);
+
+        &:active {
+          background-color: var(--color-base-300);
+        }
+      }
+    }
+
+    &-navSearch {
+      margin: 0.5em 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      gap: 1em;
+    }
+
+    &-wishlistAndCart {
+      margin: 1.5em 0;
+      display: flex;
+      flex-direction: column;
     }
   }
 }
@@ -96,11 +159,22 @@
 
 @include breakpoint(lg) {
   .nav {
+    padding: 0 1.5em;
     &-search {
       display: none;
     }
     &-icons {
       display: none;
+
+      &-mobile {
+        margin: 1.5em 0;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 1.5em;
+        color: var(--color-neutral);
+        font-size: var(--text-lg);
+      }
     }
     &-mobile-menu {
       display: block;
@@ -115,5 +189,11 @@
 
   .logo {
     font-size: var(--text-lg);
+  }
+}
+
+@include breakpoint(sm) {
+  .nav-sidebar {
+    width: 100%;
   }
 }

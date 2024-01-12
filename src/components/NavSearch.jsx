@@ -3,7 +3,7 @@ import { Form, useLoaderData } from "react-router-dom";
 import { nanoid } from "nanoid";
 import React from "react";
 
-const NavSearch = () => {
+const NavSearch = ({ setOpen }) => {
   const { genres } = useLoaderData();
 
   return (
@@ -29,7 +29,12 @@ const NavSearch = () => {
         />
       </div>
       <div>
-        <button type="submit">
+        <button
+          type="submit"
+          onClick={() => {
+            if (setOpen !== undefined) setOpen(false);
+          }}
+        >
           <BsSearch />
         </button>
       </div>

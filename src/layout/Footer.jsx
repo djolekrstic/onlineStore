@@ -76,7 +76,7 @@ const Footer = () => {
         </div>
         <div className="footer-bottom">
           <div>
-            <p>Copyright © Ђорђе Крстић | All Rights Reserved</p>
+            <p>Copyright © {new Date().getFullYear()} | All Rights Reserved</p>
           </div>
           <div>
             <p>

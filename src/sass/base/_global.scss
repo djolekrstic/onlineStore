@@ -1,4 +1,4 @@
-@use "./breakpoints" as *;
+@use "../base/breakpoints" as *;
 
 * {
   box-sizing: border-box;
@@ -9,6 +9,9 @@ html {
 }
 
 body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: var(--color-base-100);
 }
 
@@ -42,6 +45,6 @@ body {
 
 @include breakpoint(xxl) {
   .align-element {
-    margin: 0 1em;
+    margin: 0 0.5em;
   }
 }

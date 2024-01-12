@@ -41,6 +41,10 @@
     gap: 0.5em;
     color: var(--color-neutral);
 
+    a {
+      color: var(--color-primary);
+    }
+
     &-name {
       font-size: var(--text-sm);
     }
