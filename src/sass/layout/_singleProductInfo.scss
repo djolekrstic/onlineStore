@@ -35,7 +35,7 @@
     table {
       width: 100%;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 6fr;
       gap: 0.5em;
     }
 
@@ -55,6 +55,7 @@
       color: var(--color-neutral);
       font-size: var(--text-xs);
       background-color: var(--color-base-200);
+      overflow: hidden;
     }
   }
 }

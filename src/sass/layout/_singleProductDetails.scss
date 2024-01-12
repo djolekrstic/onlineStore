@@ -1,3 +1,5 @@
+@use "../base/breakpoints" as *;
+
 .singleProductDetails {
   display: flex;
   flex-direction: column;
@@ -86,7 +88,7 @@
     }
 
     button {
-      width: 20%;
+      padding: 0 0.5em;
       height: 3em;
       color: var(--color-neutral);
       font-size: var(--text-xs);
@@ -116,6 +118,14 @@
       &:hover {
         color: var(--color-primary);
       }
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .singleProductDetails {
+    &-info {
+      grid-template-columns: 1fr;
     }
   }
 }
