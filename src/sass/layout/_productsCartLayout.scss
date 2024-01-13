@@ -1,7 +1,15 @@
+@use "../base/breakpoints" as *;
+
 .productsCartLayout {
   height: 39em;
   display: flex;
   flex-direction: column;
   justify-content: start;
   gap: 2em;
+}
+
+@include breakpoint(md) {
+  .productsCartLayout {
+    height: 35em;
+  }
 }

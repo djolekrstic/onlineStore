@@ -1,3 +1,5 @@
+@use "../base/breakpoints" as *;
+
 .productCart {
   padding: 1em;
   width: 38em;
@@ -19,6 +21,7 @@
     color: var(--color-neutral);
     font-size: var(--text-sm);
     font-weight: 900;
+    text-align: center;
   }
 
   &-price {
@@ -59,5 +62,28 @@
         color: var(--color-alert);
       }
     }
+  }
+}
+
+@include breakpoint(md) {
+  .productCart {
+    width: 30em;
+    grid-template-columns: auto auto auto auto;
+
+    &-image {
+      display: none;
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .productCart {
+    width: 20em;
+  }
+}
+
+@include breakpoint(xs) {
+  .productCart {
+    width: 16em;
   }
 }

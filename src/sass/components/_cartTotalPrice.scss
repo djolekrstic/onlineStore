@@ -1,3 +1,5 @@
+@use "../base/breakpoints" as *;
+
 .cartTotalPrice {
   width: 22em;
   padding: 1.5em;
@@ -43,5 +45,12 @@
 
   button:hover {
     opacity: 0.8;
+  }
+}
+
+@include breakpoint(xs) {
+  .cartTotalPrice {
+    margin-top: 2em;
+    width: 16em;
   }
 }

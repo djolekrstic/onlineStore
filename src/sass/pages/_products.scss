@@ -1,5 +1,8 @@
+@use "../base/breakpoints" as *;
+
 .products {
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-top: 1em;
 
@@ -46,6 +49,7 @@
 }
 
 .remove-wishlist {
+  margin-top: 3em;
   display: flex;
   justify-content: end;
 
@@ -63,6 +67,21 @@
 
     &:hover {
       background-color: var(--color-alert);
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .products {
+    &-pagination {
+      &-buttons {
+        gap: 0.5em;
+      }
+
+      button {
+        width: 2.3em;
+        height: 2.3em;
+      }
     }
   }
 }
