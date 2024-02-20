@@ -2,6 +2,10 @@
 
 .content {
   color: var(--color-neutral);
+
+  .heading {
+    font-size: var(--text-lg);
+  }
 }
 
 @include breakpoint(md) {
