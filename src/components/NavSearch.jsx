@@ -9,7 +9,7 @@ const NavSearch = ({ setOpen }) => {
   return (
     <Form className="search-bar" action="/products">
       <div>
-        <label for="genre">Pick a genre</label>
+        <label htmlFor="genre">Pick a genre</label>
         <select id="genre" name="genre">
           {genres.map((genre) => {
             return (
@@ -23,7 +23,7 @@ const NavSearch = ({ setOpen }) => {
         </select>
       </div>
       <div>
-        <label for="search_key">Search key</label>
+        <label htmlFor="search_key">Search key</label>
         <input
           id="search_key"
           type="text"
@@ -32,7 +32,7 @@ const NavSearch = ({ setOpen }) => {
         />
       </div>
       <div>
-        <label for="submit">Submit</label>
+        <label htmlFor="submit">Submit</label>
         <button
           id="submit"
           type="submit"

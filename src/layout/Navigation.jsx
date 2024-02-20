@@ -30,7 +30,11 @@ const Navigation = () => {
         </div>
         <div className="nav-icons">
           <div className="nav-icon">
-            <NavLink to="liked" className="nav-link">
+            <NavLink
+              to="liked"
+              className="nav-link"
+              aria-label="Liked products"
+            >
               {productsLikedNum > 0 ? (
                 <div className="nav-icon-indicator">
                   <p>{productsLikedNum}</p>
@@ -42,7 +46,11 @@ const Navigation = () => {
             </NavLink>
           </div>
           <div className="nav-icon">
-            <NavLink to="cart" className="nav-link">
+            <NavLink
+              to="cart"
+              className="nav-link"
+              aria-label="Products in cart"
+            >
               {productsInCart > 0 ? (
                 <div className="nav-icon-indicator">
                   <p>{productsInCart}</p>
