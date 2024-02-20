@@ -14,7 +14,9 @@ const BannerSmall = ({ genre, ad }) => {
         <div>
           <div className="banner-small-background">
             {slideGenres.map(({ image_background }) => {
-              return <img key={nanoid()} src={image_background} />;
+              return (
+                <img key={nanoid()} src={image_background} alt="Banner image" />
+              );
             })}
           </div>
           <div className="banner-background-color"></div>
