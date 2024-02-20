@@ -9,7 +9,8 @@ const NavSearch = ({ setOpen }) => {
   return (
     <Form className="search-bar" action="/products">
       <div>
-        <select name="genre">
+        <label for="genre">Pick a genre</label>
+        <select id="genre" name="genre">
           {genres.map((genre) => {
             return (
               <option key={nanoid()} value={genre.name}>
@@ -22,14 +23,18 @@ const NavSearch = ({ setOpen }) => {
         </select>
       </div>
       <div>
+        <label for="search_key">Search key</label>
         <input
+          id="search_key"
           type="text"
           placeholder="Enter your search key ..."
           name="search_key"
         />
       </div>
       <div>
+        <label for="submit">Submit</label>
         <button
+          id="submit"
           type="submit"
           onClick={() => {
             if (setOpen !== undefined) setOpen(false);

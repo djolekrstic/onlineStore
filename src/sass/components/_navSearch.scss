@@ -6,6 +6,10 @@
   align-items: center;
   height: auto;
 
+  label {
+    display: none;
+  }
+
   select {
     padding: 0 0.5em;
     height: 2.3em;
